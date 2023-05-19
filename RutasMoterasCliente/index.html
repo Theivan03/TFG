@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RutasMoteras</title>
+    <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: #EBF5FB;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+ 
+    </div>
+    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="module">
+    
+        import Main from "./modules/Main.js";
+        import Autor from "./modules/Autor.js";
+        import HeaderLogin from "./modules/HeaderLogin.js";
+        import HeaderLogout from "./modules/HeaderLogout.js";
+        import Footer from "./modules/Footer.js";
+        import Rutas from "./modules/Rutas.js";
+        import Login from "./modules/Login.js";
+        import Header2 from "./modules/Header2.js";
+        import CrearLike from "./modules/CrearLike.js";
+        import CrearRutas from "./modules/CrearRutas.js";
+        import User from "./modules/User.js";
+        import SingIn from "./modules/SingIn.js";
+        
+
+
+    var myApp = Vue.createApp(Main);
+    myApp.component("Autor",Autor);
+    myApp.component("HeaderLogout",HeaderLogout);
+    myApp.component("HeaderLogin",HeaderLogin);
+    myApp.component("Footer",Footer);
+    myApp.component("Rutas",Rutas);
+    myApp.component("Login",Login);
+    myApp.component("Header2",Header2);
+    myApp.component("CrearLike",CrearLike);
+    myApp.component("CrearRutas",CrearRutas);
+    myApp.component("SingIn",SingIn);
+    myApp.component("User",User);
+
+    myApp.mount("#app");
+    </script>
+
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
