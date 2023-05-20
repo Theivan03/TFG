@@ -3,12 +3,12 @@ const Main = {
     <div :style="div">
         <!-- Aqui se saca todo el codigo html de cada uno de los componentes creados. -->
         <!-- Cada uno lo saca cuando cumple los requisitos que se le pide y también se le pasa a cada componente las funciones que necesita y los datos que se necesitan-->
-        <HeaderLogin v-if="email===false" @inicio="MostrarInicio" @login="MostrarLogin"></HeaderLogin>
-        <HeaderLogout v-if="email" @inicio="MostrarInicio" @logout="HacerLogout" @usuario="MostrarUsuario"></HeaderLogout>
+        <HeaderLogin v-if="email===false" @inicio="MostrarInicio" @login="MostrarLogin" :flecha="mostrarRutas"></HeaderLogin>
+        <HeaderLogout v-if="email" @inicio="MostrarInicio" @logout="HacerLogout" @usuario="MostrarUsuario" @rutas="BuscarRutas()" :flecha="mostrarRutas"></HeaderLogout>
         <Header2 v-if="mostrarRutas" @crear="MostrarCreacion()" :rutas="rutas" @FiltrarRutas="rutas=$event" @filtrar="BuscarRutas()"></Header2>
         <Autor v-if="mostrarAutor"></Autor>
         <Rutas v-if="mostrarRutas" :rutas="rutas"></Rutas>
-        <Login v-if="mostrarLogin" :users="usuarios" :style="ruta" @FuncionUsuario="email=$event" @MostrarInicio="MostrarInicio" @Singin="MostrarSingin"></Login>
+        <Login v-if="mostrarLogin" @FuncionUsuario="email=$event" @MostrarInicio="MostrarInicio" @Singin="MostrarSingin"></Login>
         <CrearRutas v-if="mostrarCreacion" @MostrarInicio="MostrarInicio" @Rutas="BuscarRutas()"></CrearRutas>
         <User v-if="mostrarUsuario" :rutas="rutas" :user="email"></User>
         <SingIn v-if="mostrarSingin" @login="MostrarLogin" @MostrarLogin="MostrarLogin"></SingIn>

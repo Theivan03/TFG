@@ -12,8 +12,6 @@ const SingIn={
         </form>
         `,
 
-        props:["users"],
-
         data() {
             return {
                 username: '',
