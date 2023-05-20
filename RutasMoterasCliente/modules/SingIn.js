@@ -10,47 +10,44 @@ const SingIn={
             <p>Ya tienes una cuenta registrada? <a @click="$emit('login')">Iniciar sesión.</a></p>
 
         </form>
-        `,
+    `,
 
-        data() {
-            return {
-                username: '',
-                email: '',
-                password: '',
-                error: '',
-                div:{
-                    "padding-top": "150px",
-                },
-                button:{
-                    "background-color": "#007bff",
-                    "color": "white",
-                    "border": "none",
-                    "padding": "10px 20px",
-                    "border-radius": "5px",
-                    "cursor": "pointer",
-                }
+    data() {
+        return {
+            username: '',
+            email: '',
+            password: '',
+            error: '',
+            div:{
+                "padding-top": "150px",
+            },
+            button:{
+                "background-color": "#007bff",
+                "color": "white",
+                "border": "none",
+                "padding": "10px 20px",
+                "border-radius": "5px",
+                "cursor": "pointer",
             }
-        },
+        }
+    },
 
-        methods:{
-            // Sirve para crear el usuario en la API
-            singin() {
-                axios.post('http://127.0.0.1/api/usuarios_detail/', {   'username': this.username, 
-                                                                        'email': this.email, 
-                                                                        'password': this.password, 
-                  })
-                    .then(response => {
-                        console.log(response)
-                        console.log('El nuevo dato se creó correctamente');
-                        this.error = '';
-                        this.$emit("MostrarLogin");
-                    })
-                    .catch(error => {
-                        console.log('Ocurrió un error al crear el nuevo dato: ', error);
-                        this.error = 'Ocurrió algo inesperado, vuelve a intentarlo.'
-                    });
-            }
-        },
+    methods:{
+        // Sirve para crear el usuario en la API
+        singin() {
+            axios.post('http://127.0.0.1/api/usuarios_detail/', {   'username': this.username, 
+                                                                    'email': this.email, 
+                                                                    'password': this.password, 
+                })
+                .then(response => {
+                    this.error = '';
+                    this.$emit("MostrarLogin");
+                })
+                .catch(error => {
+                    this.error = 'Ocurrió algo inesperado, vuelve a intentarlo.'
+                });
+        }
+    },
 }
 
 export default SingIn;

@@ -10,46 +10,44 @@ const Login={
         </form>
         `,
 
-        props:["users"],
-
-        data() {
-            return {
-                email: '',
-                password: '',
-                error: '',
-                div:{
-                    "padding-top": "150px",
-                },
-                button:{
-                    "background-color": "#007bff",
-                    "color": "white",
-                    "border": "none",
-                    "padding": "10px 20px",
-                    "border-radius": "5px",
-                    "cursor": "pointer",
-                }
+    data() {
+        return {
+            email: '',
+            password: '',
+            error: '',
+            div:{
+                "padding-top": "150px",
+            },
+            button:{
+                "background-color": "#007bff",
+                "color": "white",
+                "border": "none",
+                "padding": "10px 20px",
+                "border-radius": "5px",
+                "cursor": "pointer",
             }
-        },
+        }
+    },
 
-        methods:{
-            // Sirve para hecer el login y crear el almacenamiento local.
-            login() {
-                axios.post('http://127.0.0.1/api/auth/jwt/create/', {   'email': this.email,
-                                                                        'password': this.password,
-                  })
-                    .then(response => {
-                        this.error = '';
-                        this.$emit("FuncionUsuario", this.email);
-                        this.$emit("MostrarInicio");
-                        console.log(response);
-                        localStorage.setItem("email", this.email);
-                    })
-                    .catch(error => {
-                        console.log('Ocurrió un error al crear el nuevo dato: ', error);
-                        this.error = 'Las credenciales no son correctas.'
-                    });
-            }
-        },
+    methods:{
+        // Sirve para hecer el login y crear el almacenamiento local.
+        login() {
+            axios.post('http://127.0.0.1/api/auth/jwt/create/', {   'email': this.email,
+                                                                    'password': this.password,
+                })
+                .then(response => {
+                    this.error = '';
+                    this.$emit("FuncionUsuario", this.email);
+                    this.$emit("MostrarInicio");
+                    console.log(response);
+                    localStorage.setItem("email", this.email);
+                })
+                .catch(error => {
+                    console.log('Ocurrió un error al crear el nuevo dato: ', error);
+                    this.error = 'Las credenciales no son correctas.'
+                });
+        }
+    },
 }
 
 export default Login;

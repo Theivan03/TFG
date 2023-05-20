@@ -25,9 +25,6 @@ const Header={
     props:["flecha", "email"],
 
     data(){
-        if(this.flecha === false){
-            console.log(this.flecha)
-        }
         return{
             header:{
                 "display": "flex",
@@ -80,9 +77,6 @@ const Header={
     },
     watch: {
         flecha: function(nuevoValor, viejoValor) {
-          // Acciones a realizar cuando cambia el valor de la prop "flecha"
-          console.log("El valor de flecha ha cambiado");
-          // Forzar la actualización del componente
           this.$forceUpdate();
         }
     }

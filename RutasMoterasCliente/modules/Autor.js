@@ -13,28 +13,28 @@ const Autor={
         </div>
         `,
 
-        data(){
-            return{
-                div:{
-                    "text-align": "center",
-                    "padding-top": "150px",
-                },
-                div2: {
-                    "text-align": "center",
-                    "padding-top": "350px", 
-                },
-                title: {
-                    "font-size": "2.5rem",
-                    "font-weight": "bold",
-                    "margin-bottom": "2rem",
-                },
-                info: {
-                    "max-width": "800px",
-                    "margin": "0 auto",
-                    "line-height": "1.5",
-                },
-            }
-        },  
+    data(){
+        return{
+            div:{
+                "text-align": "center",
+                "padding-top": "150px",
+            },
+            div2: {
+                "text-align": "center",
+                "padding-top": "350px", 
+            },
+            title: {
+                "font-size": "2.5rem",
+                "font-weight": "bold",
+                "margin-bottom": "2rem",
+            },
+            info: {
+                "max-width": "800px",
+                "margin": "0 auto",
+                "line-height": "1.5",
+            },
+        }
+    },  
 }
 
 export default Autor;

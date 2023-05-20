@@ -23,9 +23,9 @@ const Rutas={
             div2: {
                 "margin": "10px",
                 "padding": "10px",
-                "background-color": "#F8F9FA",
+                "background-color": "white",
                 "border": "1px solid #dee2e6",
-                "border-radius": "0.3rem",
+                "border-radius": "1rem",
             },
             div: {
                 "margin-bottom": "50px",

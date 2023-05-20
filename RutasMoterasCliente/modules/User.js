@@ -21,6 +21,7 @@ const User={
 
     data() {
         return {
+            user: localStorage.getItem("email"),
             div2: {
                 "margin": "10px",
                 "padding": "10px",
@@ -31,7 +32,6 @@ const User={
             div: {
                 "margin-bottom": "50px",
             },
-            user: localStorage.getItem("email"),
             p: {
                 marginLeft: "150px",
                 marginTop: "50px",

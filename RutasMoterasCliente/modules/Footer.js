@@ -10,34 +10,34 @@ const Footer={
                 <a href="#" :style="a" @click="$emit('autor')">Autor</a>
             </div>
         </footer>
-        `,
+    `,
 
-        data(){
-            return{
-                footer:{
-                    "display": "flex",
-                    "justify-content": "space-between",
-                    "position": "fixed",
-                    "bottom": "0",
-                    "width": "100%",
-                    "background-color": "black",
-                    "text-align": "center",
-                    "padding": "10px",
-                },
-                left:{
-                    "display": "flex",
-                    "margin-left": "100px",
-                },
-                right:{
-                    "display": "flex",
-                    "margin-right": "100px",
-                },
-                a:{
-                    "margin-right": "40px",
-                    "color": "white",
-                },
-            }
-        },
+    data(){
+        return{
+            footer:{
+                "display": "flex",
+                "justify-content": "space-between",
+                "position": "fixed",
+                "bottom": "0",
+                "width": "100%",
+                "background-color": "black",
+                "text-align": "center",
+                "padding": "10px",
+            },
+            left:{
+                "display": "flex",
+                "margin-left": "100px",
+            },
+            right:{
+                "display": "flex",
+                "margin-right": "100px",
+            },
+            a:{
+                "margin-right": "40px",
+                "color": "white",
+            },
+        }
+    },
 }
 
 export default Footer;

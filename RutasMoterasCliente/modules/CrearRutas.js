@@ -39,85 +39,83 @@ const CrearRutas={
         </div>
       `,
 
-      props:["comunidades", "motos"],
+  props:["comunidades", "motos"],
 
-      data(){
-          return{
-                titulo: '',
-                descripcion: '',
-                tipoMoto: 0,
-                comunidadAutonoma: 0,
-                usuario: 1,
-                mostrarCamposVacios: false,
-                button: {
-                  "margin-top": "1rem",
-                  "padding": "0.5rem 1rem",
-                  "background-color": "#007bff",
-                  "color": "white",
-                  "border": "none",
-                  "border-radius": "0.3rem",
-                  "cursor": "pointer",
-                },
-                crearRutas: {
-                  "max-width": "500px",
-                  "margin": "0 auto",
-                },
-                formGroup: {
-                  "margin-top": "30px",
-                },
-                label: {
-                  "display": "block",
-                  "margin-bottom": "5px",
-                  "font-weight": "bold",
-                },
-                input: {
-                  "display": "block",
-                  "width": "100%",
-                  "padding": "10px",
-                  "font-size": "16px",
-                  "border-radius": "5px",
-                  "border": "1px solid #ccc",
-                },
-                campoVacioStyle: {
-                },
-                campoVacioLetras: {
-                  "color": "red"
-                },
-                fondo: {
-                  "background-color": 'white'
-                }
-              }
-      },
-
-      methods: {
-        // Sirve para saber si hay algún campo vacio.
-        campoVacio(campo) {
-          return !this[campo];
-        },
-        // Sirve para crear la ruta en el servidor.
-        crearDato() {
-          if (this.campoVacio('titulo') || this.campoVacio('descripcion')) {
-            this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío
-            alert('Por favor, completa todos los campos obligatorios');
-          } else {
-          axios.post('http://127.0.0.1/api/rutas_detail/', {'titulo': this.titulo, 
-                                                            'descripcion': this.descripcion, 
-                                                            'tipomoto': this.tipoMoto, 
-                                                            'usuario': this.usuario, 
-                                                            'comunidad': this.comunidadAutonoma}, {
-            })
-              .then(response => {
-                this.$emit("MostrarInicio");
-                this.$emit("Rutas");
-                this.titulo = '';
-                this.descripcion = '';
-                this.tipoMoto = 0;
-                this.usuario = 0;
-                this.comunidadAutonoma = 0;
-              })
+  data(){
+      return{
+            titulo: '',
+            descripcion: '',
+            tipoMoto: 0,
+            comunidadAutonoma: 0,
+            usuario: 1,
+            mostrarCamposVacios: false,
+            button: {
+              "margin-top": "1rem",
+              "padding": "0.5rem 1rem",
+              "background-color": "#007bff",
+              "color": "white",
+              "border": "none",
+              "border-radius": "0.3rem",
+              "cursor": "pointer",
+            },
+            crearRutas: {
+              "max-width": "500px",
+              "margin": "0 auto",
+            },
+            formGroup: {
+              "margin-top": "30px",
+            },
+            label: {
+              "display": "block",
+              "margin-bottom": "5px",
+              "font-weight": "bold",
+            },
+            input: {
+              "display": "block",
+              "width": "100%",
+              "padding": "10px",
+              "font-size": "16px",
+              "border-radius": "5px",
+              "border": "1px solid #ccc",
+            },
+            campoVacioLetras: {
+              "color": "red"
+            },
+            fondo: {
+              "background-color": 'white'
+            }
           }
-        }
+  },
+
+  methods: {
+    // Sirve para saber si hay algún campo vacio.
+    campoVacio(campo) {
+      return !this[campo];
+    },
+
+    // Sirve para crear la ruta en el servidor.
+    crearDato() {
+      if (this.campoVacio('titulo') || this.campoVacio('descripcion')) {
+        this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío
+      } else {
+      axios.post('http://127.0.0.1/api/rutas_detail/', {'titulo': this.titulo, 
+                                                        'descripcion': this.descripcion, 
+                                                        'tipomoto': this.tipoMoto, 
+                                                        'usuario': this.usuario, 
+                                                        'comunidad': this.comunidadAutonoma}, {
+        })
+          .then(response => {
+            this.$emit("MostrarInicio");
+            this.$emit("Rutas");
+            this.titulo = '';
+            this.descripcion = '';
+            this.tipoMoto = 0;
+            this.usuario = 0;
+            this.comunidadAutonoma = 0;
+          })
       }
+    }
+  }
 }
 
 export default CrearRutas;
