@@ -8,6 +8,7 @@ class MyUserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyUser
         fields = (
+            'id',
             'username',
             'email',
         )
@@ -18,6 +19,7 @@ class MyUserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyUser
         fields = (
+            'id',
             'username',
             'email',
             'password',

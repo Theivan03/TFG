@@ -35,6 +35,7 @@ const SingIn={
         },
 
         methods:{
+            // Sirve para crear el usuario en la API
             singin() {
                 axios.post('http://127.0.0.1/api/usuarios_detail/', {   'username': this.username, 
                                                                         'email': this.email, 

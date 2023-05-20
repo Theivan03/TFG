@@ -32,18 +32,16 @@ const Login={
         },
 
         methods:{
+            // Sirve para hecer el login y crear el almacenamiento local.
             login() {
                 axios.post('http://127.0.0.1/api/auth/jwt/create/', {   'email': this.email,
                                                                         'password': this.password,
-                    // headers: {
-                    //   'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIwOTAyLCJpYXQiOjE2ODI1MjA2MDIsImp0aSI6IjhkZDFmMTg5ZTJlZDQ2M2Q5ZjE3YjU2OGY2ZWNkZTkxIiwidXNlcl9pZCI6MX0.YQgf3Azokm5Jjvr6_wxQCuCjSWPfFvAX6O9GiQQHWis',
-                    //   'Content-Type': 'application/json'
-                    // }
                   })
                     .then(response => {
                         this.error = '';
                         this.$emit("FuncionUsuario", this.email);
                         this.$emit("MostrarInicio");
+                        console.log(response);
                         localStorage.setItem("email", this.email);
                     })
                     .catch(error => {

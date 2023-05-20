@@ -85,10 +85,11 @@ const CrearRutas={
       props:["rutas"],
 
       methods: {
-        // Sirve para saber si hay algún campo vacio
+        // Sirve para saber si hay algún campo vacio.
         campoVacio(campo) {
           return !this[campo];
         },
+        // Sirve para crear la ruta en el servidor.
         crearDato() {
           if (this.campoVacio('titulo') || this.campoVacio('descripcion') || this.campoVacio('tipoMoto') || this.campoVacio('comunidadAutonoma')) {
             alert('Por favor, completa todos los campos obligatorios');
@@ -102,6 +103,11 @@ const CrearRutas={
               .then(response => {
                 this.$emit("MostrarInicio");
                 this.$emit("Rutas");
+                this.titulo = '';
+                this.descripcion = '';
+                this.tipoMoto = 0;
+                this.usuario = 0;
+                this.comunidadAutonoma = 0;
               })
           }
         }

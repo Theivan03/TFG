@@ -6,7 +6,8 @@ class RutaListSerializer(serializers.ModelSerializer):
 
     # Estas variables sirven para las funciones hechas un poco más abajo
     # que sirven para sacar los datos concretos que se necesitan para cada ruta.
-    usuario = serializers.SerializerMethodField()
+    nombreusuario = serializers.SerializerMethodField()
+    emailusuario = serializers.SerializerMethodField()
     comunidad = serializers.SerializerMethodField()
     tipomoto = serializers.SerializerMethodField()
     descripcion = serializers.SerializerMethodField()
@@ -14,15 +15,19 @@ class RutaListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ruta
         fields = (
-            'usuario',
+            'nombreusuario',
+            'emailusuario',
             'titulo',
             'descripcion',
             'comunidad', 
             'tipomoto',
         )
 
-    def get_usuario(self, obj):
+    def get_nombreusuario(self, obj):
         return obj.usuario.username
+    
+    def get_emailusuario(self, obj):
+        return obj.usuario.email
     
     def get_comunidad(self, obj):
         return obj.comunidad.nombre

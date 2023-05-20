@@ -1,6 +1,8 @@
 const Main = {
     template:`
     <div :style="div">
+        <!-- Aqui se saca todo el codigo html de cada uno de los componentes creados. -->
+        <!-- Cada uno lo saca cuando cumple los requisitos que se le pide y también se le pasa a cada componente las funciones que necesita y los datos que se necesitan-->
         <HeaderLogin v-if="email===false" @inicio="MostrarInicio" @login="MostrarLogin"></HeaderLogin>
         <HeaderLogout v-if="email" @inicio="MostrarInicio" @logout="HacerLogout" @usuario="MostrarUsuario"></HeaderLogout>
         <Header2 v-if="mostrarRutas" @crear="MostrarCreacion()" :rutas="rutas" @FiltrarRutas="rutas=$event" @filtrar="BuscarRutas()"></Header2>
@@ -29,6 +31,7 @@ const Main = {
         }
     },
 
+    // Descarga las rutas que haya en el servidor y comprueba si tiene una sesion iniciada.
     created(){
         this.BuscarRutas();
 
@@ -36,6 +39,8 @@ const Main = {
             this.email = true;
         };
     },
+
+    // Son todos los metodos para saber cuando mostrar cada componente.
     methods:{
         BuscarRutas(){
             this.rutas = [];
@@ -124,10 +129,6 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = true;
         },
-    },
-
-    mounted(){
-
     },
 }
 
