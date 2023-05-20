@@ -1,18 +1,18 @@
 const CrearRutas={
   template:`
         <div>
-          <form :style="crearLike">
+          <form :style="crearRutas">
             <fieldset :style="formGroup">
               <legend>Título y descripción</legend>
               <div>
                 <label :style="label" for="tituloId">Título:</label>
-                <input :style="[input, campoVacio('titulo') ? campoVacioStyle : '']" type="text" v-model="titulo" required>
-                <span v-if="campoVacio('titulo')" :style="campoVacioLetras">Campo obligatorio</span>
+                <input :style="[input, campoVacio('titulo') ? campoVacioStyle : '', campoVacio('titulo') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="titulo" required>
+                <span v-if="campoVacio('titulo') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="descripcionId">Descripción:</label>
-                <input :style="[input, campoVacio('descripcion') ? campoVacioStyle : '']" type="text" v-model="descripcion" required>
-                <span v-if="campoVacio('descripcion')" :style="campoVacioLetras">Campo obligatorio</span>
+                <input :style="[input, campoVacio('descripcion') ? campoVacioStyle : '', campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="descripcion" required>
+                <span v-if="campoVacio('descripcion') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
             </fieldset>
 
@@ -20,22 +20,26 @@ const CrearRutas={
               <legend>Tipo de moto y comunidad autónoma</legend>
               <div>
                 <label :style="label" for="tipoMotoId">Tipo de moto:</label>
-                <input :style="[input, campoVacio('tipoMoto') ? campoVacioStyle : '']" type="number" v-model="tipoMoto" required>
-                <span v-if="campoVacio('tipoMoto')" :style="campoVacioLetras">Campo obligatorio</span>
+                <select :style="[input, campoVacio('tipoMoto') ? campoVacioStyle : '', campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '']" v-model="tipoMoto" required>
+                  <option v-for="moto in motos" :key="moto.id" :value="moto.id">{{ moto.tipo }}</option>
+                </select>
+                <span v-if="campoVacio('tipoMoto') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="comunidadAutonomaId">Comunidad autónoma:</label>
-                <input :style="[input, campoVacio('comunidadAutonoma') ? campoVacioStyle : '']" type="number" v-model="comunidadAutonoma" required>
-                <span v-if="campoVacio('comunidadAutonoma')" :style="campoVacioLetras">Campo obligatorio</span>
+                <select :style="[input, campoVacio('comunidadAutonoma') ? campoVacioStyle : '', campoVacio('comunidadAutonoma') && mostrarCamposVacios ? campoVacioErrorStyle : '']" v-model="comunidadAutonoma" required>
+                  <option v-for="comunidad in comunidades" :key="comunidad.id" :value="comunidad.id">{{ comunidad.nombre }}</option>
+                </select>
+                <span v-if="campoVacio('comunidadAutonoma') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
             </fieldset>
 
-            <button :style="button" type="button" @click="crearDato">Crear</button>
+            <button :style="button" type="button" @click="mostrarCamposVacios = true; crearDato">Crear</button>
           </form>
         </div>
       `,
 
-      
+      props:["comunidades", "motos"],
 
       data(){
           return{
@@ -44,6 +48,7 @@ const CrearRutas={
                 tipoMoto: 0,
                 comunidadAutonoma: 0,
                 usuario: 1,
+                mostrarCamposVacios: false,
                 button: {
                   "margin-top": "1rem",
                   "padding": "0.5rem 1rem",
@@ -53,7 +58,7 @@ const CrearRutas={
                   "border-radius": "0.3rem",
                   "cursor": "pointer",
                 },
-                crearLike: {
+                crearRutas: {
                   "max-width": "500px",
                   "margin": "0 auto",
                 },
@@ -74,15 +79,15 @@ const CrearRutas={
                   "border": "1px solid #ccc",
                 },
                 campoVacioStyle: {
-                  "border": '1px solid red'
                 },
                 campoVacioLetras: {
                   "color": "red"
                 },
+                fondo: {
+                  "background-color": 'white'
+                }
               }
       },
-
-      props:["rutas"],
 
       methods: {
         // Sirve para saber si hay algún campo vacio.
@@ -91,7 +96,8 @@ const CrearRutas={
         },
         // Sirve para crear la ruta en el servidor.
         crearDato() {
-          if (this.campoVacio('titulo') || this.campoVacio('descripcion') || this.campoVacio('tipoMoto') || this.campoVacio('comunidadAutonoma')) {
+          if (this.campoVacio('titulo') || this.campoVacio('descripcion')) {
+            this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío
             alert('Por favor, completa todos los campos obligatorios');
           } else {
           axios.post('http://127.0.0.1/api/rutas_detail/', {'titulo': this.titulo, 
