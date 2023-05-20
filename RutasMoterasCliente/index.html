@@ -56,8 +56,7 @@
     
         import Main from "./modules/Main.js";
         import Autor from "./modules/Autor.js";
-        import HeaderLogin from "./modules/HeaderLogin.js";
-        import HeaderLogout from "./modules/HeaderLogout.js";
+        import Header from "./modules/Header.js";
         import Footer from "./modules/Footer.js";
         import Rutas from "./modules/Rutas.js";
         import Login from "./modules/Login.js";
@@ -70,8 +69,7 @@
 
     var myApp = Vue.createApp(Main);
     myApp.component("Autor",Autor);
-    myApp.component("HeaderLogout",HeaderLogout);
-    myApp.component("HeaderLogin",HeaderLogin);
+    myApp.component("Header",Header);
     myApp.component("Footer",Footer);
     myApp.component("Rutas",Rutas);
     myApp.component("Login",Login);

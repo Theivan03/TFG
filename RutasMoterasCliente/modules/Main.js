@@ -3,8 +3,7 @@ const Main = {
     <div :style="div">
         <!-- Aqui se saca todo el codigo html de cada uno de los componentes creados. -->
         <!-- Cada uno lo saca cuando cumple los requisitos que se le pide y también se le pasa a cada componente las funciones que necesita y los datos que se necesitan-->
-        <HeaderLogin v-if="email===false" @inicio="MostrarInicio" @login="MostrarLogin" :flecha="mostrarRutas"></HeaderLogin>
-        <HeaderLogout v-if="email" @inicio="MostrarInicio" @logout="HacerLogout" @usuario="MostrarUsuario" @rutas="BuscarRutas()" :flecha="mostrarRutas"></HeaderLogout>
+        <Header @inicio="MostrarInicio" @logout="HacerLogout" @login="MostrarLogin" @usuario="MostrarUsuario" @rutas="BuscarRutas()" :flecha="mostrarRutas" :email="email"></Header>
         <Header2 v-if="mostrarRutas" @crear="MostrarCreacion()" :rutas="rutas" @FiltrarRutas="rutas=$event" @filtrar="BuscarRutas()"></Header2>
         <Autor v-if="mostrarAutor"></Autor>
         <Rutas v-if="mostrarRutas" :rutas="rutas"></Rutas>
