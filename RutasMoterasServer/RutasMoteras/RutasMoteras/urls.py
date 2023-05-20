@@ -27,6 +27,7 @@ from comunidadesAutonomas.api import views as comunidades_api_views
 router = routers.DefaultRouter()
 router.register(r'motos_list', motos_api_views.MotosListViewSet, basename='motos_list')
 router.register(r'motos_detail', motos_api_views.MotosDetailViewSet, basename='motos_detail')
+
 router.register(r'rutas_list', rutas_api_views.RutaListViewSet, basename='rutas_list')
 router.register(r'rutas_detail', rutas_api_views.RutaDetailViewSet, basename='rutas_detail')
 

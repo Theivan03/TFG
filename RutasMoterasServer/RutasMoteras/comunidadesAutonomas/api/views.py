@@ -26,12 +26,12 @@ class ComunidadesListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     
 
 
-class ComunidadesDetailViewSet(    destroy, 
-                            mixins.CreateModelMixin, 
-                            mixins.RetrieveModelMixin, 
-                            mixins.UpdateModelMixin, 
-                            mixins.DestroyModelMixin,
-                            viewsets.GenericViewSet):
+class ComunidadesDetailViewSet(     destroy, 
+                                    mixins.CreateModelMixin, 
+                                    mixins.RetrieveModelMixin, 
+                                    mixins.UpdateModelMixin, 
+                                    mixins.DestroyModelMixin,
+                                    viewsets.GenericViewSet):
     """
     Descripción: Saca todos los campos de las Comunidades Autónomas.
     """

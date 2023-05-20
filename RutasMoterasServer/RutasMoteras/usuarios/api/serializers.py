@@ -4,7 +4,6 @@ from usuarios.models import MyUser
 # Serializadores para mostrar los datos necesarios en la API.
 class MyUserListSerializer(serializers.ModelSerializer):
 
-
     class Meta:
         model = MyUser
         fields = (

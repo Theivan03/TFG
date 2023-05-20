@@ -9,6 +9,7 @@ class MotosListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Motos
         fields = (
+            'id',
             'tipo',
             'habitad'
         )

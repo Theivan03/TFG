@@ -7,7 +7,6 @@ from rutas.api.serializers import ( RutaListSerializer,
                                     RutaDetailSerializer,
                                             )
 from rest_framework.decorators import api_view
-from .mixins import destroy
 
 # Vistas para la API
 class RutaListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
@@ -27,8 +26,7 @@ class RutaListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     
 
 
-class RutaDetailViewSet(    destroy, 
-                            mixins.CreateModelMixin, 
+class RutaDetailViewSet(    mixins.CreateModelMixin, 
                             mixins.RetrieveModelMixin, 
                             mixins.UpdateModelMixin, 
                             mixins.DestroyModelMixin,
