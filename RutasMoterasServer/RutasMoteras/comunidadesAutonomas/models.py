@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+# Modelos de las Comunidades Autonomas
 class Comunidades(models.Model):
     nombre = models.CharField(max_length = 256, unique=True)
 

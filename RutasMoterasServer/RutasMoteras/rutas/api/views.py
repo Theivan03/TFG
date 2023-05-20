@@ -1,21 +1,13 @@
 from rest_framework import (mixins, 
-                            permissions, 
                             viewsets, 
                             filters, 
-                            views, 
-                            response, 
-                            status, 
                             )
 from rutas.models import Ruta
 from rutas.api.serializers import ( RutaListSerializer, 
                                     RutaDetailSerializer,
                                             )
-from rutas.api.pagination import (  LargeResultsSetPagination, 
-                                    ShortResultsSetPagination, 
-                                    StandardResultsSetPagination)
 from rest_framework.decorators import api_view
 from .mixins import destroy
-# from rest_framework.permissions import IsAuthenticated
 
 # Vistas para la API
 class RutaListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
@@ -29,7 +21,6 @@ class RutaListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     ordering = 'usuario' , 'titulo', 'comunidad'
     ordering_fields = ['tipomoto', 'comunidad']
     search_fields = ['tipomoto', 'comunidad']
-    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         return Ruta.objects.all()
@@ -47,7 +38,6 @@ class RutaDetailViewSet(    destroy,
     """
     serializer_class = RutaDetailSerializer
     model = Ruta
-    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Ruta.objects.all()

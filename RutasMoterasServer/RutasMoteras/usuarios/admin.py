@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import MyUser
 
+# Admin de los Usuarios
 class MyUserAdmin(admin.ModelAdmin):
     list_display = ['username', 'email', 'activo', 'create_date', 'update_date']
 

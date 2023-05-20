@@ -39,10 +39,6 @@ const SingIn={
                 axios.post('http://127.0.0.1/api/usuarios_detail/', {   'username': this.username, 
                                                                         'email': this.email, 
                                                                         'password': this.password, 
-                    // headers: {
-                    //   'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIwOTAyLCJpYXQiOjE2ODI1MjA2MDIsImp0aSI6IjhkZDFmMTg5ZTJlZDQ2M2Q5ZjE3YjU2OGY2ZWNkZTkxIiwidXNlcl9pZCI6MX0.YQgf3Azokm5Jjvr6_wxQCuCjSWPfFvAX6O9GiQQHWis',
-                    //   'Content-Type': 'application/json'
-                    // }
                   })
                     .then(response => {
                         console.log(response)
@@ -55,16 +51,6 @@ const SingIn={
                         this.error = 'Ocurrió algo inesperado, vuelve a intentarlo.'
                     });
             }
-            // login() {
-            //     const user = this.users.find(u => u.email === this.email && u.password === this.password);
-            //     if (user) {
-            //         this.error = '';
-            //         this.$emit("FuncionUsuario", this.email);
-            //         this.$emit("MostrarInicio");
-            //     } else {
-            //         this.error = 'Credenciales incorrectas';
-            //     }
-            // }
         },
 }
 

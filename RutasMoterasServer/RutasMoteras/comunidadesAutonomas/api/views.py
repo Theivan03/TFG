@@ -6,11 +6,7 @@ from comunidadesAutonomas.models import Comunidades
 from comunidadesAutonomas.api.serializers import (  ComunidadesListSerializer, 
                                                     ComunidadesDetailSerializer,
                                                     )
-from comunidadesAutonomas.api.pagination import (   LargeResultsSetPagination, 
-                                                    ShortResultsSetPagination, 
-                                                    StandardResultsSetPagination)
 from .mixins import destroy
-# from rest_framework.permissions import IsAuthenticated
 
 # Vistas para la API
 class ComunidadesListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
@@ -24,7 +20,6 @@ class ComunidadesListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     ordering = 'nombre'
     ordering_fields = ['nombre']
     search_fields = ['nombre']
-    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         return Comunidades.objects.all()
@@ -42,7 +37,6 @@ class ComunidadesDetailViewSet(    destroy,
     """
     serializer_class = ComunidadesDetailSerializer
     model = Comunidades
-    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Comunidades.objects.all()

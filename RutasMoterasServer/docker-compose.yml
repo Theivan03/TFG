@@ -7,10 +7,11 @@ services:
       - "80:8000"
     volumes:
       - ./RutasMoteras/:/code
-    #Cambiar base de datos a PostgresSQL
+    # Cambiar base de datos a PostgresSQL
     depends_on:
       - db
-  
+      
+  # Base de datos postgres
   db:
     image: postgres:13
     volumes:

@@ -1,14 +1,9 @@
 from rest_framework import (mixins, 
-                            permissions, 
-                            viewsets, 
-                            filters, 
-                            views, 
-                            response, 
                             status, 
                             )
 from rest_framework.response import Response
 
-#UD11.3.b
+# Mixin para el borrado por si existen dependencias
 class destroy(mixins.DestroyModelMixin):
 
     def destroy(self, request, *args, **kwargs):

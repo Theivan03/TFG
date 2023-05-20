@@ -4,6 +4,8 @@ from rutas.models import Ruta
 # Serializadores para mostrar los datos necesarios en la API.
 class RutaListSerializer(serializers.ModelSerializer):
 
+    # Estas variables sirven para las funciones hechas un poco más abajo
+    # que sirven para sacar los datos concretos que se necesitan para cada ruta.
     usuario = serializers.SerializerMethodField()
     comunidad = serializers.SerializerMethodField()
     tipomoto = serializers.SerializerMethodField()

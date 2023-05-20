@@ -31,25 +31,6 @@ const Rutas={
 
         props:["rutas"],
 
-        mounted(){
-            //   FUNCIONA
-            //  fetch("http://127.0.0.1/api/comunidades_detail/"+this.rutas.comunidad+"/")
-            //     .then(response=>response.json())
-            //     .then(datos=>{
-            //         this.nombreComunidad=datos.nombre;
-            //     })
-            //  fetch("http://127.0.0.1/api/usuarios_detail/"+this.rutas.usuario+"/")
-            //     .then(response=>response.json())
-            //     .then(datos=>{
-            //         this.nombreUsuario=datos.username;
-            //     })
-            //    fetch("http://127.0.0.1/api/motos_detail/"+this.rutas.tipomoto+"/")
-            //     .then(response=>response.json())
-            //     .then(datos=>{
-            //         this.tipoMoto=datos.tipo;
-            //     })
-        },
-
 }
 
 export default Rutas;
