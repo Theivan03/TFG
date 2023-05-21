@@ -21,20 +21,20 @@ const CrearRutas={
               <div>
                 <label :style="label" for="tipoMotoId">Tipo de moto:</label>
                 <select :style="[input, campoVacio('tipoMoto') ? campoVacioStyle : '', campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '']" v-model="tipoMoto" required>
-                  <option v-for="moto in motos" :key="moto.id" :value="moto.id">{{ moto.tipo }}</option>
+                  <option v-for="moto in motos" :key="moto.id" :value="moto.id" @change="onTipoMotoChange(moto.id)">{{ moto.tipo }}</option>
                 </select>
                 <span v-if="campoVacio('tipoMoto') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="comunidadAutonomaId">Comunidad autónoma:</label>
                 <select :style="[input, campoVacio('comunidadAutonoma') ? campoVacioStyle : '', campoVacio('comunidadAutonoma') && mostrarCamposVacios ? campoVacioErrorStyle : '']" v-model="comunidadAutonoma" required>
-                  <option v-for="comunidad in comunidades" :key="comunidad.id" :value="comunidad.id">{{ comunidad.nombre }}</option>
+                  <option v-for="comunidad in comunidades" :key="comunidad.id" :value="comunidad.id"  @change="onComunidadAutonomaChange(comunidad.id)">{{ comunidad.nombre }}</option>
                 </select>
                 <span v-if="campoVacio('comunidadAutonoma') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
             </fieldset>
 
-            <button :style="button" type="button" @click="mostrarCamposVacios = true; crearDato">Crear</button>
+            <button :style="button" type="button" @click="mostrarCamposVacios = true" @click="crearDato">Crear</button>
           </form>
         </div>
       `,
@@ -91,6 +91,16 @@ const CrearRutas={
     // Sirve para saber si hay algún campo vacio.
     campoVacio(campo) {
       return !this[campo];
+    },
+
+    onTipoMotoChange(id) {
+      // Actualizar la variable tipoMoto con el ID seleccionado
+      this.tipoMoto = id;
+    },
+
+    onComunidadAutonomaChange(id) {
+      // Actualizar la variable comunidadAutonoma con el ID seleccionado
+      this.comunidadAutonoma = id;
     },
 
     // Sirve para crear la ruta en el servidor.
