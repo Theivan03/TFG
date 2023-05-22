@@ -10,7 +10,6 @@ class RutaListSerializer(serializers.ModelSerializer):
     emailusuario = serializers.SerializerMethodField()
     comunidad = serializers.SerializerMethodField()
     tipomoto = serializers.SerializerMethodField()
-    descripcion = serializers.SerializerMethodField()
 
     class Meta:
         model = Ruta
@@ -36,8 +35,6 @@ class RutaListSerializer(serializers.ModelSerializer):
     def get_tipomoto(self, obj):
         return obj.tipomoto.tipo
     
-    def get_descripcion(self, obj):
-        return obj.descripcion[:70]
 
 
 class RutaDetailSerializer(serializers.ModelSerializer):
