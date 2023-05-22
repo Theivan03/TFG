@@ -15,6 +15,7 @@ class RutaListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ruta
         fields = (
+            'id',
             'nombreusuario',
             'emailusuario',
             'titulo',
@@ -36,7 +37,7 @@ class RutaListSerializer(serializers.ModelSerializer):
         return obj.tipomoto.tipo
     
     def get_descripcion(self, obj):
-        return obj.descripcion[:70] + " ..."
+        return obj.descripcion[:70]
 
 
 class RutaDetailSerializer(serializers.ModelSerializer):
@@ -44,6 +45,7 @@ class RutaDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ruta
         fields = (
+            'id',
             'usuario',
             'titulo',
             'descripcion',
