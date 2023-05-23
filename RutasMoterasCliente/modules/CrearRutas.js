@@ -20,14 +20,14 @@ const CrearRutas={
               <legend>Tipo de moto y comunidad autónoma</legend>
               <div>
                 <label :style="label" for="tipoMotoId">Tipo de moto:</label>
-                <select :style="[input, campoVacio('tipoMoto') ? campoVacioStyle : '', campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '']" v-model="tipoMoto" required>
+                <select :style="[input, campoVacio('tipoMoto') ? campoVacioStyle : '', campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="tipoMoto" required>
                   <option v-for="moto in motos" :key="moto.id" :value="moto.id" @change="onTipoMotoChange(moto.id)">{{ moto.tipo }}</option>
                 </select>
                 <span v-if="campoVacio('tipoMoto') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="comunidadAutonomaId">Comunidad autónoma:</label>
-                <select :style="[input, campoVacio('comunidadAutonoma') ? campoVacioStyle : '', campoVacio('comunidadAutonoma') && mostrarCamposVacios ? campoVacioErrorStyle : '']" v-model="comunidadAutonoma" required>
+                <select :style="[input, campoVacio('comunidadAutonoma') ? campoVacioStyle : '', campoVacio('comunidadAutonoma') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="comunidadAutonoma" required>
                   <option v-for="comunidad in comunidades" :key="comunidad.id" :value="comunidad.id"  @change="onComunidadAutonomaChange(comunidad.id)">{{ comunidad.nombre }}</option>
                 </select>
                 <span v-if="campoVacio('comunidadAutonoma') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>

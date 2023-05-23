@@ -3,7 +3,7 @@ const Rutas={
         <!-- Se hece un bucle para sacar todas las rutas que se le pasa al componente. -->
         <div class="row" :style="div">
         <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
-            <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta)">
+            <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta.id)" @click="$emit('MostrarDetalle')">
                 <div :style="div2" class="p-3 mb-4">
                     <h4>{{ruta.titulo}}</h4>
                     <p>{{limiteCaracteres(ruta.descripcion)}}</p>
@@ -45,11 +45,12 @@ const Rutas={
     methods:{
         Detalle(ruta){
             this.$emit("DetalleRuta", ruta)
+            console.log(ruta);
         },
 
         limiteCaracteres(value) {
             if (value && value.length > 70) {
-              return value.slice(0, 70) + "...";
+              return value.slice(0, 70) + " ...";
             }
             return value;
         },

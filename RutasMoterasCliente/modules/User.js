@@ -51,7 +51,7 @@ const User={
         }
     },
     computed: {
-        // Sirve para filtrar las ruitas por el usuario
+        // Sirve para filtrar las rutas por el usuario
         rutasFiltradas() {
         return this.rutas.filter(ruta => ruta.emailusuario === this.user);
         }

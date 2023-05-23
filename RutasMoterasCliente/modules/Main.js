@@ -6,7 +6,8 @@ const Main = {
             <Header @inicio="MostrarInicio" @logout="HacerLogout" @login="MostrarLogin" @usuario="MostrarUsuario" @rutas="BuscarRutas()" :flecha="mostrarRutas" :email="email"></Header>
             <Header2 v-if="mostrarRutas" @crear="MostrarCreacion()" :rutas="rutas" @FiltrarRutas="rutas=$event" @filtrar="BuscarRutas()"></Header2>
             <Autor v-if="mostrarAutor"></Autor>
-            <Rutas v-if="mostrarRutas" :rutas="rutas"></Rutas>
+            <Rutas v-if="mostrarRutas" :rutas="rutas" @MostrarDetalle="MostrarDetalle" @DetalleRuta="ruta=$event"></Rutas>
+            <Detalle v-if="mostrarDetalle" :ruta="ruta" :rutas="rutas"></Detalle>
             <Login v-if="mostrarLogin" @FuncionUsuario="email=$event" @MostrarInicio="MostrarInicio" @Singin="MostrarSingin"></Login>
             <CrearRutas v-if="mostrarCreacion" @MostrarInicio="MostrarInicio" @Rutas="BuscarRutas()" :comunidades="comunidades" :motos="motos"></CrearRutas>
             <User v-if="mostrarUsuario" :rutas="rutas" :user="email"></User>
@@ -21,6 +22,7 @@ const Main = {
             rutas: [],
             motos: [],
             comunidades: [],
+            ruta: 0,
             email: false,
             filtrado: false,
             mostrarAutor: false,
@@ -29,6 +31,8 @@ const Main = {
             mostrarUsuario: false,
             mostrarCreacion: false,
             mostrarSingin: false,
+            mostrarDetalle: false,
+            mostrarModificacion: false,
         }
     },
 
@@ -75,6 +79,7 @@ const Main = {
             this.mostrarCreacion = false;
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
+            this.mostrarDetalle = false;
         },
         MostrarInicio(){
             this.mostrarAutor = false;
@@ -83,6 +88,7 @@ const Main = {
             this.mostrarCreacion = false;
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
+            this.mostrarDetalle = false;
         },
         MostrarLogin(){
             this.mostrarAutor = false;
@@ -91,6 +97,7 @@ const Main = {
             this.mostrarCreacion = false;
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
+            this.mostrarDetalle = false;
         },
         MostrarCreacion(){
             if(this.email){
@@ -100,6 +107,7 @@ const Main = {
                 this.mostrarCreacion = true;
                 this.mostrarUsuario = false;
                 this.mostrarSingin = false;
+                this.mostrarDetalle = false;
             } else{
                 this.mostrarAutor = false;
                 this.mostrarLogin = true;
@@ -107,6 +115,7 @@ const Main = {
                 this.mostrarCreacion = false;
                 this.mostrarUsuario = false;
                 this.mostrarSingin = false;
+                this.mostrarDetalle = false;
             }
         },
         MostrarUsuario(){
@@ -117,6 +126,7 @@ const Main = {
                 this.mostrarCreacion = false;
                 this.mostrarUsuario = true;
                 this.mostrarSingin = false;
+                this.mostrarDetalle = false;
             } else{
                 this.mostrarAutor = false;
                 this.mostrarLogin = true;
@@ -124,6 +134,7 @@ const Main = {
                 this.mostrarCreacion = false;
                 this.mostrarUsuario = false;
                 this.mostrarSingin = false;
+                this.mostrarDetalle = false;
             }
         },
         HacerLogout(){
@@ -138,6 +149,7 @@ const Main = {
             this.mostrarCreacion = false;
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
+            this.mostrarDetalle = false;
         },
         MostrarSingin(){
             this.mostrarAutor = false;
@@ -146,7 +158,17 @@ const Main = {
             this.mostrarCreacion = false;
             this.mostrarUsuario = false;
             this.mostrarSingin = true;
+            this.mostrarDetalle = false;
         },
+        MostrarDetalle(){
+            this.mostrarAutor = false;
+            this.mostrarLogin = false;
+            this.mostrarRutas = false;
+            this.mostrarCreacion = false;
+            this.mostrarUsuario = false;
+            this.mostrarSingin = false;
+            this.mostrarDetalle = true;
+        }
     },
 }
 
