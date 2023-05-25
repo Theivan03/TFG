@@ -47,7 +47,7 @@ const CrearRutas={
             descripcion: '',
             tipoMoto: 0,
             comunidadAutonoma: 0,
-            usuario: 1,
+            usuario: 6,
             mostrarCamposVacios: false,
             button: {
               "margin-top": "1rem",

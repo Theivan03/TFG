@@ -35,10 +35,10 @@ const SingIn={
 
     methods: {
         singin() {
-            if (!this.validateEmail(this.email)) {
-                this.error = 'El correo electrónico no es válido.';
-                return;
-            }
+            // if (!this.validateEmail(this.email)) {
+            //     this.error = 'El correo electrónico no es válido.';
+            //     return;
+            // }
         
             axios.post('http://127.0.0.1/api/usuarios_detail/', { username: this.username,
                                                                 email: this.email,

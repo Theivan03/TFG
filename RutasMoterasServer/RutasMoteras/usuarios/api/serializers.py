@@ -11,6 +11,7 @@ class MyUserListSerializer(serializers.ModelSerializer):
             'id',
             'username',
             'email',
+            'password',
         )
 
     def validate_password(self, value: str) -> str:
@@ -25,6 +26,7 @@ class MyUserDetailSerializer(serializers.ModelSerializer):
             'id',
             'username',
             'email',
+            'password',
         )
 
     def validate_password(self, value: str) -> str:
