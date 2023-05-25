@@ -7,7 +7,7 @@ const Rutas={
             </div>
             <div :style="div2">
                 <label :style="label" for="filtro">Filtrado:</label>
-                <select name="Filtrado" :style="select" @click="filtrar($event.target.value)">
+                <select name="Filtrado" :style="select" @change="filtrar($event.target.value)">
                     <option>Seleciona una opción</option>
                     <option value="tipo">Tipo de moto</option>
                     <option value="comunidad">Comunidad Autonoma</option>

@@ -69,6 +69,7 @@ const Main = {
             fetch("http://127.0.0.1/api/rutas_list/")
             .then(response=>response.json())
             .then(datos=>{
+                console.log(datos)
                 this.rutas = this.rutas.concat(datos);
             });
         },
