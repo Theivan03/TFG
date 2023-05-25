@@ -49,13 +49,13 @@ const SingIn={
                 this.$emit('MostrarLogin');
             })
             .catch(error => {
-                this.error = 'Ocurrió algo inesperado, vuelve a intentarlo.';
+                this.error = error;
             });
         },
         
         validateEmail(email) {
           const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-          return emailRegex.test(email);
+          return emailRegex.test("Nombre de usuario ya utilizado, usa uno diferente.");
         },
       },
     

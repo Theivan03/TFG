@@ -2,7 +2,7 @@ const Rutas={
     template: `
         <!-- Se hece un bucle para sacar todas las rutas que se le pasa al componente. -->
         <div class="row" :style="div">
-        <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
+            <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
             <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta.id)" @click="$emit('MostrarDetalle')">
                 <div :style="div2" class="p-3 mb-4">
                     <h4>{{ruta.titulo}}</h4>
@@ -45,7 +45,6 @@ const Rutas={
     methods:{
         Detalle(ruta){
             this.$emit("DetalleRuta", ruta)
-            console.log(ruta);
         },
 
         limiteCaracteres(value) {

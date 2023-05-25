@@ -6,12 +6,12 @@ const CrearRutas={
               <legend>Título y descripción</legend>
               <div>
                 <label :style="label" for="tituloId">Título:</label>
-                <input :style="[input, campoVacio('titulo') ? campoVacioStyle : '', campoVacio('titulo') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="titulo" required>
+                <input :style="[input, campoVacio('titulo') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="titulo" required>
                 <span v-if="campoVacio('titulo') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="descripcionId">Descripción:</label>
-                <input :style="[input, campoVacio('descripcion') ? campoVacioStyle : '', campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="descripcion" required>
+                <input :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="descripcion" required>
                 <span v-if="campoVacio('descripcion') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
             </fieldset>
@@ -20,14 +20,14 @@ const CrearRutas={
               <legend>Tipo de moto y comunidad autónoma</legend>
               <div>
                 <label :style="label" for="tipoMotoId">Tipo de moto:</label>
-                <select :style="[input, campoVacio('tipoMoto') ? campoVacioStyle : '', campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="tipoMoto" required>
+                <select :style="[input, campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="tipoMoto" required>
                   <option v-for="moto in motos" :key="moto.id" :value="moto.id" @change="onTipoMotoChange(moto.id)">{{ moto.tipo }}</option>
                 </select>
                 <span v-if="campoVacio('tipoMoto') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="comunidadAutonomaId">Comunidad autónoma:</label>
-                <select :style="[input, campoVacio('comunidadAutonoma') ? campoVacioStyle : '', campoVacio('comunidadAutonoma') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="comunidadAutonoma" required>
+                <select :style="[input, campoVacio('comunidadAutonoma') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="comunidadAutonoma" required>
                   <option v-for="comunidad in comunidades" :key="comunidad.id" :value="comunidad.id"  @change="onComunidadAutonomaChange(comunidad.id)">{{ comunidad.nombre }}</option>
                 </select>
                 <span v-if="campoVacio('comunidadAutonoma') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
@@ -112,8 +112,7 @@ const CrearRutas={
                                                         'descripcion': this.descripcion, 
                                                         'tipomoto': this.tipoMoto, 
                                                         'usuario': this.usuario, 
-                                                        'comunidad': this.comunidadAutonoma}, {
-        })
+                                                        'comunidad': this.comunidadAutonoma})
           .then(response => {
             this.$emit("MostrarInicio");
             this.$emit("Rutas");

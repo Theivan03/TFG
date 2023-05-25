@@ -36,14 +36,14 @@ const Login={
                                                                     'password': this.password,
                 })
                 .then(response => {
+                    fetch("http://127.0.0.1/api/auth/jwt/create/")
+
                     this.error = '';
                     this.$emit("FuncionUsuario", this.email);
                     this.$emit("MostrarInicio");
-                    console.log(response);
                     localStorage.setItem("email", this.email);
                 })
                 .catch(error => {
-                    console.log('Ocurrió un error al crear el nuevo dato: ', error);
                     this.error = 'Las credenciales no son correctas.'
                 });
         }

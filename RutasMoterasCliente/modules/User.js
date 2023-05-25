@@ -2,15 +2,15 @@ const User={
     template: `
         <div class="row" :style="div">
             <p :style="p"><b>Estas son tus rutas user</b></p>
-            <p :style="p2"><b>Clica encima de una ruta para modificar o borrar</b></p>
-            <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index">
+            <p :style="p2"><b>Clica encima de una ruta para  borrar la ruta que desees</b></p>
+            <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index" @click="Borrar(ruta.id)" @click="$emit('MostrarModificacion')">
                 <div :style="div2" class="p-3 mb-4">
                     <h4>{{ruta.titulo}}</h4>
-                    <p>{{ruta.descripcion}}</p>
+                    <p>{{limiteCaracteres(ruta.descripcion)}}</p>
                     <div class="d-flex justify-content-between">
-                    <p>Usuario: {{ruta.nombreusuario}}</p>
-                    <p>Comunidad: {{ruta.comunidad}}</p>
-                    <p>Tipo de moto: {{ruta.tipomoto}}</p>
+                        <p>Usuario: {{ruta.nombreusuario}}</p>
+                        <p>Comunidad: {{ruta.comunidad}}</p>
+                        <p>Tipo de moto: {{ruta.tipomoto}}</p>
                     </div>
                 </div>
             </div>
@@ -21,6 +21,7 @@ const User={
 
     data() {
         return {
+            
             user: localStorage.getItem("email"),
             div2: {
                 "margin": "10px",
@@ -50,11 +51,26 @@ const User={
             },
         }
     },
+
     computed: {
         // Sirve para filtrar las rutas por el usuario
         rutasFiltradas() {
         return this.rutas.filter(ruta => ruta.emailusuario === this.user);
         }
+    },
+
+    methods:{
+        Borrar(ruta){
+            this.$emit("BorrarRuta", ruta)
+            console.log(ruta);
+        },
+
+        limiteCaracteres(value) {
+            if (value && value.length > 70) {
+              return value.slice(0, 70) + " ...";
+            }
+            return value;
+        },
     }
 }
 

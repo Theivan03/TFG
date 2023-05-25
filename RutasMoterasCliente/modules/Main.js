@@ -10,7 +10,9 @@ const Main = {
             <Detalle v-if="mostrarDetalle" :ruta="ruta" :rutas="rutas"></Detalle>
             <Login v-if="mostrarLogin" @FuncionUsuario="email=$event" @MostrarInicio="MostrarInicio" @Singin="MostrarSingin"></Login>
             <CrearRutas v-if="mostrarCreacion" @MostrarInicio="MostrarInicio" @Rutas="BuscarRutas()" :comunidades="comunidades" :motos="motos"></CrearRutas>
-            <User v-if="mostrarUsuario" :rutas="rutas" :user="email"></User>
+            
+            <User v-if="mostrarUsuario" :rutas="rutas" :user="email"  @BorrarRuta="borrar=$event" @MostrarModificacion="Borrado"></User>
+            
             <SingIn v-if="mostrarSingin" @login="MostrarLogin" @MostrarLogin="MostrarLogin"></SingIn>
             <Footer @autor="MostrarAutor"></Footer>
         </div>
@@ -23,6 +25,7 @@ const Main = {
             motos: [],
             comunidades: [],
             ruta: 0,
+            borrar: 0,
             email: false,
             filtrado: false,
             mostrarAutor: false,
@@ -32,7 +35,6 @@ const Main = {
             mostrarCreacion: false,
             mostrarSingin: false,
             mostrarDetalle: false,
-            mostrarModificacion: false,
         }
     },
 
@@ -69,6 +71,7 @@ const Main = {
             fetch("http://127.0.0.1/api/rutas_list/")
             .then(response=>response.json())
             .then(datos=>{
+                console.log(datos);
                 this.rutas = this.rutas.concat(datos);
             });
         },
@@ -80,6 +83,7 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
             this.mostrarDetalle = false;
+            this.mostrarModificacion = false;
         },
         MostrarInicio(){
             this.mostrarAutor = false;
@@ -89,6 +93,7 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
             this.mostrarDetalle = false;
+            this.mostrarModificacion = false;
         },
         MostrarLogin(){
             this.mostrarAutor = false;
@@ -98,6 +103,7 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
             this.mostrarDetalle = false;
+            this.mostrarModificacion = false;
         },
         MostrarCreacion(){
             if(this.email){
@@ -108,6 +114,7 @@ const Main = {
                 this.mostrarUsuario = false;
                 this.mostrarSingin = false;
                 this.mostrarDetalle = false;
+                this.mostrarModificacion = false;
             } else{
                 this.mostrarAutor = false;
                 this.mostrarLogin = true;
@@ -116,6 +123,7 @@ const Main = {
                 this.mostrarUsuario = false;
                 this.mostrarSingin = false;
                 this.mostrarDetalle = false;
+                this.mostrarModificacion = false;
             }
         },
         MostrarUsuario(){
@@ -127,6 +135,7 @@ const Main = {
                 this.mostrarUsuario = true;
                 this.mostrarSingin = false;
                 this.mostrarDetalle = false;
+                this.mostrarModificacion = false;
             } else{
                 this.mostrarAutor = false;
                 this.mostrarLogin = true;
@@ -135,6 +144,7 @@ const Main = {
                 this.mostrarUsuario = false;
                 this.mostrarSingin = false;
                 this.mostrarDetalle = false;
+                this.mostrarModificacion = false;
             }
         },
         HacerLogout(){
@@ -150,6 +160,7 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
             this.mostrarDetalle = false;
+            this.mostrarModificacion = false;
         },
         MostrarSingin(){
             this.mostrarAutor = false;
@@ -159,6 +170,7 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = true;
             this.mostrarDetalle = false;
+            this.mostrarModificacion = false;
         },
         MostrarDetalle(){
             this.mostrarAutor = false;
@@ -168,7 +180,11 @@ const Main = {
             this.mostrarUsuario = false;
             this.mostrarSingin = false;
             this.mostrarDetalle = true;
-        }
+            this.mostrarModificacion = false;
+        },
+        Borrado(){
+            axios.delete('http://127.0.0.1:5500/api/motos_detail/' + this.borrar)
+        },
     },
 }
 
