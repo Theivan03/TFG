@@ -6,12 +6,12 @@ const CrearRutas={
               <legend>Título y descripción</legend>
               <div>
                 <label :style="label" for="tituloId">Título:</label>
-                <input :style="[input, campoVacio('titulo') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="titulo" required>
+                <input :style="[input, campoVacio('titulo') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="titulo" required placeholder="Ej: Silent Route">
                 <span v-if="campoVacio('titulo') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
               <div>
                 <label :style="label" for="descripcionId">Descripción:</label>
-                <input :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="descripcion" required>
+                <textarea :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '', { 'max-width': '500px', 'height': '150px', 'margin-left': '10px' }]" v-model="descripcion" maxlength="256" required placeholder="Max carácteres 256"></textarea>
                 <span v-if="campoVacio('descripcion') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
             </fieldset>
@@ -82,7 +82,8 @@ const CrearRutas={
               "color": "red"
             },
             fondo: {
-              "background-color": 'white'
+              "background-color": 'white',
+              'margin-left': '10px',
             }
           }
   },
