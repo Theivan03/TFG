@@ -12,6 +12,7 @@ const Login={
 
     data() {
         return {
+            usuarios: [],
             email: '',
             password: '',
             error: '',
