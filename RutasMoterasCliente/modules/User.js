@@ -1,7 +1,7 @@
 const User={
     template: `
         <div class="row" :style="div">
-            <p :style="p"><b>Estas son tus rutas user</b></p>
+            <p :style="p"><b>Estas son tus rutas user {{user}}</b></p>
             <p :style="p2"><b>Clica encima de una ruta para  borrar la ruta que desees</b></p>
             <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index" @click="Borrar(ruta.id)" @click="$emit('MostrarModificacion')">
                 <div :style="div2" class="p-3 mb-4">
@@ -21,8 +21,7 @@ const User={
 
     data() {
         return {
-            
-            user: localStorage.getItem("email"),
+            user: localStorage.getItem("name"),
             div2: {
                 "margin": "10px",
                 "padding": "10px",

@@ -47,7 +47,7 @@ const CrearRutas={
             descripcion: '',
             tipoMoto: 0,
             comunidadAutonoma: 0,
-            usuario: 6,
+            usuario: localStorage.getItem('id'),
             mostrarCamposVacios: false,
             button: {
               "margin-top": "1rem",
@@ -122,6 +122,9 @@ const CrearRutas={
             this.usuario = 0;
             this.comunidadAutonoma = 0;
           })
+          .catch(error => {
+            console.log(this.usuario);
+        });
       }
     }
   }

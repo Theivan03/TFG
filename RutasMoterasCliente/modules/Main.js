@@ -10,9 +10,7 @@ const Main = {
             <Detalle v-if="mostrarDetalle" :ruta="ruta" :rutas="rutas"></Detalle>
             <Login v-if="mostrarLogin" @FuncionUsuario="email=$event" @MostrarInicio="MostrarInicio" @Singin="MostrarSingin"></Login>
             <CrearRutas v-if="mostrarCreacion" @MostrarInicio="MostrarInicio" @Rutas="BuscarRutas()" :comunidades="comunidades" :motos="motos"></CrearRutas>
-            
             <User v-if="mostrarUsuario" :rutas="rutas" :user="email"  @BorrarRuta="borrar=$event" @MostrarModificacion="Borrado"></User>
-            
             <SingIn v-if="mostrarSingin" @login="MostrarLogin" @MostrarLogin="MostrarLogin"></SingIn>
             <Footer @autor="MostrarAutor"></Footer>
         </div>
@@ -71,7 +69,6 @@ const Main = {
             fetch("http://127.0.0.1/api/rutas_list/")
             .then(response=>response.json())
             .then(datos=>{
-                console.log(datos);
                 this.rutas = this.rutas.concat(datos);
             });
         },
@@ -150,6 +147,7 @@ const Main = {
         HacerLogout(){
             this.MostrarInicio();
             localStorage.removeItem("email");
+            localStorage.removeItem("user");
             this.email = false;
         },
         MostrarLogin(){
@@ -183,7 +181,10 @@ const Main = {
             this.mostrarModificacion = false;
         },
         Borrado(){
-            axios.delete('http://127.0.0.1:5500/api/motos_detail/' + this.borrar)
+            axios.delete('http://127.0.0.1/api/rutas_detail/' + this.borrar + '/')
+            .then(response=>{
+                console.log(response);
+            })
         },
     },
 }

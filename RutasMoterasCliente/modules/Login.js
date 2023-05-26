@@ -36,12 +36,18 @@ const Login={
                                                                     'password': this.password,
                 })
                 .then(response => {
-                    fetch("http://127.0.0.1/api/auth/jwt/create/")
-
                     this.error = '';
                     this.$emit("FuncionUsuario", this.email);
                     this.$emit("MostrarInicio");
                     localStorage.setItem("email", this.email);
+                    fetch("http://127.0.0.1/api/usuarios_list/")
+                    .then(response=>response.json())
+                    .then(datos=>{
+                        this.usuarios = this.usuarios.concat(datos);
+                        const usuario = this.usuarios.filter(usuario => usuario.email === localStorage.getItem("email"));
+                        localStorage.setItem("id", usuario[0].id);
+                        localStorage.setItem("name", usuario[0].username);
+                    });
                 })
                 .catch(error => {
                     this.error = 'Las credenciales no son correctas.'
