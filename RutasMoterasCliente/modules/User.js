@@ -3,7 +3,7 @@ const User={
         <div class="row" :style="div">
             <p :style="p"><b>Estas son tus rutas user {{user}}</b></p>
             <p :style="p2"><b>Clica encima de una ruta para  borrar la ruta que desees</b></p>
-            <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index" @click="Borrar(ruta.id)" @click="$emit('MostrarModificacion')">
+            <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index" @click="Actualizar(ruta)" @click="$emit('MostrarModificacion')">
                 <div :style="div2" class="p-3 mb-4">
                     <h4>{{ruta.titulo}}</h4>
                     <p>{{limiteCaracteres(ruta.descripcion)}}</p>
@@ -54,14 +54,13 @@ const User={
     computed: {
         // Sirve para filtrar las rutas por el usuario
         rutasFiltradas() {
-        return this.rutas.filter(ruta => ruta.emailusuario === this.user);
+            return this.rutas.filter(ruta => ruta.emailusuario === localStorage.getItem("email"));
         }
     },
 
     methods:{
-        Borrar(ruta){
-            this.$emit("BorrarRuta", ruta)
-            console.log(ruta);
+        Actualizar(ruta){
+            this.$emit("Actualizar", ruta);
         },
 
         limiteCaracteres(value) {

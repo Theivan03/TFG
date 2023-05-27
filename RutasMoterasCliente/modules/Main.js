@@ -10,8 +10,9 @@ const Main = {
             <Detalle v-if="mostrarDetalle" :ruta="ruta" :rutas="rutas"></Detalle>
             <Login v-if="mostrarLogin" @FuncionUsuario="email=$event" @MostrarInicio="MostrarInicio" @Singin="MostrarSingin"></Login>
             <CrearRutas v-if="mostrarCreacion" @MostrarInicio="MostrarInicio" @Rutas="BuscarRutas()" :comunidades="comunidades" :motos="motos"></CrearRutas>
-            <User v-if="mostrarUsuario" :rutas="rutas" :user="email"  @BorrarRuta="borrar=$event" @MostrarModificacion="Borrado"></User>
-            <SingIn v-if="mostrarSingin" @login="MostrarLogin" @MostrarLogin="MostrarLogin"></SingIn>
+            <User v-if="mostrarUsuario" :rutas="rutas" :user="email"  @Actualizar="ruta2=$event" @MostrarModificacion="MostrarModificacion"></User>
+            <Actualizar v-if="mostrarModificacion" :ruta="ruta2" :comunidades="comunidades" :motos="motos" @MostrarUsuario="MostrarUsuario" @DescargarRutas="BuscarRutas"></Actualizar>
+            <SingIn v-if="mostrarSingin" @login="MostrarLogin" @MostrarLogin="MostrarLogin" @MostrarUsuario="MostrarUsuario"></SingIn>
             <Footer @autor="MostrarAutor"></Footer>
         </div>
     `,
@@ -22,8 +23,8 @@ const Main = {
             rutas: [],
             motos: [],
             comunidades: [],
+            ruta2: [],
             ruta: 0,
-            borrar: 0,
             email: false,
             filtrado: false,
             mostrarAutor: false,
@@ -33,6 +34,7 @@ const Main = {
             mostrarCreacion: false,
             mostrarSingin: false,
             mostrarDetalle: false,
+            mostrarModificacion: false,
         }
     },
 
@@ -147,7 +149,8 @@ const Main = {
         HacerLogout(){
             this.MostrarInicio();
             localStorage.removeItem("email");
-            localStorage.removeItem("user");
+            localStorage.removeItem("name");
+            localStorage.removeItem("id");
             this.email = false;
         },
         MostrarLogin(){
@@ -180,11 +183,15 @@ const Main = {
             this.mostrarDetalle = true;
             this.mostrarModificacion = false;
         },
-        Borrado(){
-            axios.delete('http://127.0.0.1/api/rutas_detail/' + this.borrar + '/')
-            .then(response=>{
-                console.log(response);
-            })
+        MostrarModificacion(){
+            this.mostrarAutor = false;
+            this.mostrarLogin = false;
+            this.mostrarRutas = false;
+            this.mostrarCreacion = false;
+            this.mostrarUsuario = false;
+            this.mostrarSingin = false;
+            this.mostrarDetalle = false;
+            this.mostrarModificacion = true;
         },
     },
 }
