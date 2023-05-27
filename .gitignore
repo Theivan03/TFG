@@ -1,3 +1,6 @@
+# Para hacer las migraciones: sudo docker exec -it rutasmoterasserver-web-1 /bin/bash
+# Para arrancar proyecto: sudo docker-compose up
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

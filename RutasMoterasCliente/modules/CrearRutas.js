@@ -11,7 +11,7 @@ const CrearRutas={
               </div>
               <div>
                 <label :style="label" for="descripcionId">Descripción:</label>
-                <textarea :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '', { 'max-width': '500px', 'height': '150px', 'margin-left': '10px' }]" v-model="descripcion" maxlength="256" required placeholder="Max carácteres 256"></textarea>
+                <textarea :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '', { 'max-width': '500px', 'height': '150px', 'margin-left': '10px' }]" v-model="descripcion" maxlength="1024" required placeholder="Descripción..."></textarea>
                 <span v-if="campoVacio('descripcion') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
               </div>
             </fieldset>

@@ -11,7 +11,7 @@ const Actualizar={
                 </div>
                 <div>
                     <label :style="label" for="descripcionId">Descripción:</label>
-                    <input :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="descripcion" required>
+                    <textarea :style="[input, campoVacio('descripcion') && mostrarCamposVacios ? campoVacioErrorStyle : '', { 'max-width': '500px', 'height': '150px', 'margin-left': '10px' }]" v-model="descripcion" maxlength="1024" required placeholder="Descripción..."></textarea>
                     <span v-if="campoVacio('descripcion') && mostrarCamposVacios" :style="campoVacioLetras">Campo obligatorio</span>
                 </div>
               </fieldset>
@@ -40,7 +40,7 @@ const Actualizar={
           </div>
         `,
   
-    props:["comunidades", "motos", 'ruta'],
+    props:["comunidades", "motos", "ruta"],
   
     data(){
         return{
@@ -83,7 +83,8 @@ const Actualizar={
                 "color": "red"
             },
             fondo: {
-                "background-color": 'white'
+                "background-color": 'white',
+                'margin-left': '10px',
             }
         }
     },
