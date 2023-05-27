@@ -21,7 +21,7 @@ const Autor={
             },
             div2: {
                 "text-align": "center",
-                "padding-top": "350px", 
+                "padding-top": "250px", 
             },
             title: {
                 "font-size": "2.5rem",

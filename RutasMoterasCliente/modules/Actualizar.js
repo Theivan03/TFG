@@ -34,8 +34,8 @@ const Actualizar={
                 </div>
               </fieldset>
   
-              <button :style="button" type="button" @click="mostrarCamposVacios = true" @click="Actualizar">Actualizar</button>
-              <button :style="button" type="button" @click="Borrar">Borrar</button>
+              <button :style="actualizar" type="button" @click="mostrarCamposVacios = true" @click="Actualizar">Actualizar</button>
+              <button :style="borrar" type="button" @click="Borrar">Borrar</button>
             </form>
           </div>
         `,
@@ -50,10 +50,19 @@ const Actualizar={
             comunidadAutonoma: 0,
             usuario: parseInt(localStorage.getItem('id'), 10),
             mostrarCamposVacios: false,
-            button: {
+            actualizar: {
                 "margin-top": "1rem",
                 "padding": "0.5rem 1rem",
                 "background-color": "#007bff",
+                "color": "white",
+                "border": "none",
+                "border-radius": "0.3rem",
+                "cursor": "pointer",
+            },
+            borrar: {
+                "margin-top": "1rem",
+                "padding": "0.5rem 1rem",
+                "background-color": "red",
                 "color": "white",
                 "border": "none",
                 "border-radius": "0.3rem",
