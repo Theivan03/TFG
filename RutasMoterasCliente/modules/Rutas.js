@@ -32,8 +32,8 @@ const Rutas={
                 "margin-bottom": "50px",
             },
             p: {
-                marginLeft: "138px",
-                marginTop: "0px",
+                marginLeft: "170px",
+                marginTop: "10px",
                 marginBottom: "30px",
                 fontSize: "1.5rem",
                 fontWeight: "",

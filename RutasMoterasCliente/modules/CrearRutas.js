@@ -57,6 +57,7 @@ const CrearRutas={
               "border": "none",
               "border-radius": "0.3rem",
               "cursor": "pointer",
+              'margin-left': '10px',
             },
             crearRutas: {
               "max-width": "500px",
@@ -79,7 +80,8 @@ const CrearRutas={
               "border": "1px solid #ccc",
             },
             campoVacioLetras: {
-              "color": "red"
+              "color": "red",
+              'margin-left': '10px',
             },
             fondo: {
               "background-color": 'white',
