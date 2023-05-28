@@ -31,47 +31,51 @@ const Header={
                 "align-items": "center",
                 "text-align": "center",
             },
+
             img:{
                 "max-width": "50px",
                 "margin-left": "150px",
                 "margin-right": "-170px",
             },
+
             imglogin:{
                 "max-width": "50px",
                 "margin-left": "150px",
                 "margin-right": "-10px",
             },
+
             h1:{
                 "font-family": "Sedgwick Ave Display",
-                // "font-family": "Roboto",
                 "flex": "1",
                 "text-align": "center",
                 "margin-left": "18px",
             },
+
             h1login:{
                 "font-family": "Sedgwick Ave Display",
-                // "font-family": "Roboto",
                 "flex": "1",
                 "text-align": "center",
             },
+
             h1derecha: {
                 "font-family": "Sedgwick Ave Display",
-                // "font-family": "Roboto",
                 "flex": "1",
                 "text-align": "center",
                 "margin-left": "48px",
             },
+
             h1derechalogin: {
                 "font-family": "Sedgwick Ave Display",
-                // "font-family": "Roboto",
                 "flex": "1",
                 "text-align": "center",
                 "margin-left": "190px",
             },
+
             a:{
                 "text-align": "right",
                 "margin-right": "150px",
             },
+
             user:{
                 "text-align": "right",
                 "margin-right": "50px",
@@ -79,11 +83,6 @@ const Header={
             },
         }
     },
-    watch: {
-        flecha: function(nuevoValor, viejoValor) {
-          this.$forceUpdate();
-        }
-    }
 }
 
 export default Header;

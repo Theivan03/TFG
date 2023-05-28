@@ -24,14 +24,17 @@ const Footer={
                 "text-align": "center",
                 "padding": "10px",
             },
+
             left:{
                 "display": "flex",
                 "margin-left": "100px",
             },
+
             right:{
                 "display": "flex",
                 "margin-right": "100px",
             },
+            
             a:{
                 "margin-right": "40px",
                 "color": "white",

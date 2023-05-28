@@ -22,6 +22,7 @@ const User={
     data() {
         return {
             user: localStorage.getItem("name"),
+
             div2: {
                 "margin": "10px",
                 "padding": "10px",
@@ -29,40 +30,45 @@ const User={
                 "border": "1px solid #dee2e6",
                 "border-radius": "0.3rem",
             },
+
             div: {
                 "margin-bottom": "50px",
             },
+
             p: {
-                marginLeft: "150px",
-                marginTop: "50px",
-                marginBottom: "10px",
-                fontSize: "2rem",
-                fontWeight: "bold",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                "marginLeft": "150px",
+                "marginTop": "50px",
+                "marginBottom": "10px",
+                "fontSize": "2rem",
+                "fontWeight": "bold",
+                "textShadow": "2px 2px 4px rgba(0, 0, 0, 0.3)",
             },
+
             p2: {
-                marginLeft: "150px",
-                marginTop: "0px",
-                marginBottom: "30px",
-                fontSize: "1rem",
-                fontWeight: "",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                "marginLeft": "150px",
+                "marginTop": "0px",
+                "marginBottom": "30px",
+                "fontSize": "1rem",
+                "fontWeight": "",
+                "textShadow": "2px 2px 4px rgba(0, 0, 0, 0.3)",
             },
         }
     },
 
     computed: {
-        // Sirve para filtrar las rutas por el usuario
+        // Sirve para filtrar las rutas por el usuario.
         rutasFiltradas() {
             return this.rutas.filter(ruta => ruta.emailusuario === localStorage.getItem("email"));
         }
     },
 
     methods:{
+        // Sirve para actualizar cierta ruta que tiene creada el usaurio.
         Actualizar(ruta){
             this.$emit("Actualizar", ruta);
         },
 
+        // Sirve para saber la cantidad de carácteres que se tienen que sacar en la descripción de cada ruta en la página principal.
         limiteCaracteres(value) {
             if (value && value.length > 70) {
               return value.slice(0, 70) + " ...";

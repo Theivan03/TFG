@@ -22,22 +22,26 @@ const Autor={
                 "text-align": "center",
                 "padding-top": "70px",
             },
+
             div2: {
                 "text-align": "center",
                 "padding-top": "60px", 
             },
+
             title: {
                 "font-family": "Sedgwick Ave Display",
                 "font-size": "2.5rem",
                 "font-weight": "bold",
                 "margin-bottom": "2rem",
             },
+
             info: {
 
                 "max-width": "800px",
                 "margin": "0 auto",
                 "line-height": "1.5",
             },
+            
             img:{
                 "margin-bottom": "20px",
             },

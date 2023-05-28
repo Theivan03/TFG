@@ -19,9 +19,11 @@ const SingIn={
             password: '',
             error: '',
             erroremail: '',
+
             div:{
                 "padding-top": "150px",
             },
+
             button:{
                 "background-color": "#007bff",
                 "color": "white",
@@ -29,17 +31,13 @@ const SingIn={
                 "padding": "10px 20px",
                 "border-radius": "5px",
                 "cursor": "pointer",
-            }
+            },
         }
     },
 
     methods: {
+        // Sirve para hacer la creación de un nuevo usuario.
         singin() {
-            // if (!this.validateEmail(this.email)) {
-            //     this.error = 'El correo electrónico no es válido.';
-            //     return;
-            // }
-        
             axios.post('http://127.0.0.1/api/usuarios_detail/', { username: this.username,
                                                                 email: this.email,
                                                                 password: this.password,
@@ -53,6 +51,7 @@ const SingIn={
             });
         },
         
+        // Sirve para comprobar que el email tenga sentido y pueda ser válido.
         validateEmail(email) {
           const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
           return emailRegex.test("Nombre de usuario ya utilizado, usa uno diferente.");

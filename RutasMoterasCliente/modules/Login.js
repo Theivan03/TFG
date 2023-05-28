@@ -16,9 +16,11 @@ const Login={
             email: '',
             password: '',
             error: '',
+
             div:{
                 "padding-top": "150px",
             },
+
             button:{
                 "background-color": "#007bff",
                 "color": "white",
@@ -28,7 +30,7 @@ const Login={
                 "margin-bottom": "20px",
                 "border-radius": "5px",
                 "cursor": "pointer",
-            }
+            },
         }
     },
 

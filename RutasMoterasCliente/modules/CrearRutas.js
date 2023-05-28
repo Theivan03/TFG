@@ -49,6 +49,7 @@ const CrearRutas={
             comunidadAutonoma: 0,
             usuario: localStorage.getItem('id'),
             mostrarCamposVacios: false,
+
             button: {
               "margin-top": "1rem",
               "padding": "0.5rem 1rem",
@@ -59,18 +60,22 @@ const CrearRutas={
               "cursor": "pointer",
               "margin-left": "10px",
             },
+            
             crearRutas: {
               "max-width": "500px",
               "margin": "0 auto",
             },
+
             formGroup: {
               "margin-top": "30px",
             },
+
             label: {
               "display": "block",
               "margin-bottom": "5px",
               "font-weight": "bold",
             },
+
             input: {
               "display": "block",
               "width": "100%",
@@ -79,14 +84,17 @@ const CrearRutas={
               "border-radius": "5px",
               "border": "1px solid #ccc",
             },
+
             campoVacioLetras: {
               "color": "red",
               "margin-left": "10px",
             },
+
             fondo: {
               "background-color": "white",
               "margin-left": "10px",
             },
+
             legend: {
               "font-size": "30px",
             },
@@ -100,19 +108,19 @@ const CrearRutas={
     },
 
     onTipoMotoChange(id) {
-      // Actualizar la variable tipoMoto con el ID seleccionado
+      // Actualizar la variable tipoMoto con el ID seleccionado.
       this.tipoMoto = id;
     },
 
     onComunidadAutonomaChange(id) {
-      // Actualizar la variable comunidadAutonoma con el ID seleccionado
+      // Actualizar la variable comunidadAutonoma con el ID seleccionado.
       this.comunidadAutonoma = id;
     },
 
     // Sirve para crear la ruta en el servidor.
     crearDato() {
       if (this.campoVacio('titulo') || this.campoVacio('descripcion')) {
-        this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío
+        this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío.
       } else {
       axios.post('http://127.0.0.1/api/rutas_detail/', {'titulo': this.titulo, 
                                                         'descripcion': this.descripcion, 

@@ -28,25 +28,29 @@ const Rutas={
                 "border": "1px solid #dee2e6",
                 "border-radius": "1rem",
             },
+
             div: {
                 "margin-bottom": "50px",
             },
+
             p: {
-                marginLeft: "200px",
-                marginTop: "10px",
-                marginBottom: "30px",
-                fontSize: "1.5rem",
-                fontWeight: "",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                "marginLeft": "200px",
+                "marginTop": "10px",
+                "marginBottom": "30px",
+                "fontSize": "1.5rem",
+                "fontWeight": "",
+                "textShadow": "2px 2px 4px rgba(0, 0, 0, 0.3)",
             },
         }
     },
 
     methods:{
+        // Sirve sacar el detalle de las rutas.
         Detalle(ruta){
             this.$emit("DetalleRuta", ruta)
         },
 
+        // Sirve para saber la cantidad de carácteres que se tienen que sacar en la descripción de cada ruta en la página principal.
         limiteCaracteres(value) {
             if (value && value.length > 70) {
               return value.slice(0, 70) + " ...";

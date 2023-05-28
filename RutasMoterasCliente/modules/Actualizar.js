@@ -61,6 +61,7 @@ const Actualizar={
                 "cursor": "pointer",
                 'margin-left': '10px',
             },
+
             borrar: {
                 "margin-top": "1rem",
                 "padding": "0.5rem 1rem",
@@ -71,18 +72,22 @@ const Actualizar={
                 "cursor": "pointer",
                 'margin-left': '10px',
             },
+
             crearRutas: {
                 "max-width": "500px",
                 "margin": "0 auto",
             },
+
             formGroup: {
                 "margin-top": "30px",
             },
+
             label: {
                 "display": "block",
                 "margin-bottom": "5px",
                 "font-weight": "bold",
             },
+
             input: {
                 "display": "block",
                 "width": "100%",
@@ -91,10 +96,12 @@ const Actualizar={
                 "border-radius": "5px",
                 "border": "1px solid #ccc",
             },
+
             campoVacioLetras: {
                 "color": "red",
                 'margin-left': '10px',
             },
+            
             fondo: {
                 "background-color": 'white',
                 'margin-left': '10px',
@@ -108,12 +115,12 @@ const Actualizar={
             return !this[campo];
         },
       
-        // Actualizar la variable tipoMoto con el ID seleccionado
+        // Actualizar la variable tipoMoto con el ID seleccionado.
         onTipoMotoChange(id) {
             this.tipoMoto = id;
         },
       
-        // Actualizar la variable comunidadAutonoma con el ID seleccionado
+        // Actualizar la variable comunidadAutonoma con el ID seleccionado.
         onComunidadAutonomaChange(id) {
             this.comunidadAutonoma = id;
         },
@@ -121,14 +128,14 @@ const Actualizar={
         // Sirve para actualizar la ruta en el servidor.
         Actualizar() {
             if (this.campoVacio('titulo') || this.campoVacio('descripcion')) {
-                this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío
+                this.mostrarCamposVacios = true; // Mostrar error si hay algún campo vacío.
             } else {
-            axios.put('http://127.0.0.1/api/rutas_detail/' + this.ruta.id + "/", {'id': this.ruta.id,
-                                                                            'usuario': this.usuario, 
-                                                                            'titulo': this.titulo, 
-                                                                            'descripcion': this.descripcion, 
-                                                                            'tipomoto': this.tipoMoto, 
-                                                                            'comunidad': this.comunidadAutonoma})
+            axios.put('http://127.0.0.1/api/rutas_detail/' + this.ruta.id + "/", {  'id': this.ruta.id,
+                                                                                    'usuario': this.usuario, 
+                                                                                    'titulo': this.titulo, 
+                                                                                    'descripcion': this.descripcion, 
+                                                                                    'tipomoto': this.tipoMoto, 
+                                                                                    'comunidad': this.comunidadAutonoma})
                 .then(response => {
                     this.$emit("DescargarRutas");
                     this.$emit("MostrarUsuario");
