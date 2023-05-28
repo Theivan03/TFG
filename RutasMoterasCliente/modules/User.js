@@ -3,7 +3,7 @@ const User={
         <div class="row" :style="div">
             <p :style="p"><b>Estas son tus rutas user {{user}}</b></p>
             <p :style="p2"><b>Clica encima de una ruta para entrar en modo edición</b></p>
-            <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index" @click="Actualizar(ruta)" @click="$emit('MostrarModificacion')">
+            <div class="col-md-6 text-center" v-for="(ruta, index) in rutasFiltradas" :key="index" @click="Actualizar(ruta), $emit('MostrarModificacion')">
                 <div :style="div2" class="p-3 mb-4">
                     <h4>{{ruta.titulo}}</h4>
                     <p>{{limiteCaracteres(ruta.descripcion)}}</p>

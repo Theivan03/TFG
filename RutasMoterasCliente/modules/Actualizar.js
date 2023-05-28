@@ -34,7 +34,7 @@ const Actualizar={
                 </div>
               </fieldset>
   
-              <button :style="actualizar" type="button" @click="mostrarCamposVacios = true" @click="Actualizar">Actualizar</button>
+              <button :style="actualizar" type="button" @click="mostrarCamposVacios = true, Actualizar()">Actualizar</button>
               <button :style="borrar" type="button" @click="Borrar">Borrar</button>
             </form>
           </div>
@@ -50,6 +50,7 @@ const Actualizar={
             comunidadAutonoma: 0,
             usuario: parseInt(localStorage.getItem('id'), 10),
             mostrarCamposVacios: false,
+
             actualizar: {
                 "margin-top": "1rem",
                 "padding": "0.5rem 1rem",
@@ -104,19 +105,20 @@ const Actualizar={
     methods: {
         // Sirve para saber si hay algún campo vacio.
         campoVacio(campo) {
-          return !this[campo];
+            return !this[campo];
         },
       
+        // Actualizar la variable tipoMoto con el ID seleccionado
         onTipoMotoChange(id) {
-          // Actualizar la variable tipoMoto con el ID seleccionado
-          this.tipoMoto = id;
+            this.tipoMoto = id;
         },
       
+        // Actualizar la variable comunidadAutonoma con el ID seleccionado
         onComunidadAutonomaChange(id) {
-          // Actualizar la variable comunidadAutonoma con el ID seleccionado
-          this.comunidadAutonoma = id;
+            this.comunidadAutonoma = id;
         },
-            // Sirve para crear la ruta en el servidor.
+        
+        // Sirve para actualizar la ruta en el servidor.
         Actualizar() {
             if (this.campoVacio('titulo') || this.campoVacio('descripcion')) {
                 this.mostrarCamposVacios = true; // Mostrar campos vacíos si hay algún campo vacío
@@ -134,6 +136,7 @@ const Actualizar={
             }
         },
 
+        // Sirve para borrar la ruta en el servidor.
         Borrar(){
             const borrar = prompt("Introduce la palabra 'Borrar' para borrar la ruta.");
             if(borrar === 'Borrar'){

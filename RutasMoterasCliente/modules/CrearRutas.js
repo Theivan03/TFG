@@ -3,7 +3,7 @@ const CrearRutas={
         <div>
           <form :style="crearRutas">
             <fieldset :style="formGroup">
-              <legend>Título y descripción</legend>
+              <legend :style="legend">Título y descripción</legend>
               <div>
                 <label :style="label" for="tituloId">Título:</label>
                 <input :style="[input, campoVacio('titulo') && mostrarCamposVacios ? campoVacioErrorStyle : '']" type="text" v-model="titulo" required placeholder="Ej: Silent Route">
@@ -17,7 +17,7 @@ const CrearRutas={
             </fieldset>
 
             <fieldset :style="formGroup">
-              <legend>Tipo de moto y comunidad autónoma</legend>
+              <legend :style="legend">Tipo de moto y comunidad autónoma</legend>
               <div>
                 <label :style="label" for="tipoMotoId">Tipo de moto:</label>
                 <select :style="[input, campoVacio('tipoMoto') && mostrarCamposVacios ? campoVacioErrorStyle : '', fondo]" v-model="tipoMoto" required>
@@ -57,7 +57,7 @@ const CrearRutas={
               "border": "none",
               "border-radius": "0.3rem",
               "cursor": "pointer",
-              'margin-left': '10px',
+              "margin-left": "10px",
             },
             crearRutas: {
               "max-width": "500px",
@@ -81,12 +81,15 @@ const CrearRutas={
             },
             campoVacioLetras: {
               "color": "red",
-              'margin-left': '10px',
+              "margin-left": "10px",
             },
             fondo: {
-              "background-color": 'white',
-              'margin-left': '10px',
-            }
+              "background-color": "white",
+              "margin-left": "10px",
+            },
+            legend: {
+              "font-size": "30px",
+            },
           }
   },
 

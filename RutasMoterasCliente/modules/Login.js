@@ -24,6 +24,8 @@ const Login={
                 "color": "white",
                 "border": "none",
                 "padding": "10px 20px",
+                "margin-top": "10px",
+                "margin-bottom": "20px",
                 "border-radius": "5px",
                 "cursor": "pointer",
             }
@@ -40,10 +42,10 @@ const Login={
                     this.error = '';
                     this.$emit("FuncionUsuario", this.email);
                     this.$emit("MostrarInicio");
-                    localStorage.setItem("email", this.email);
                     fetch("http://127.0.0.1/api/usuarios_list/")
                     .then(response=>response.json())
                     .then(datos=>{
+                        localStorage.setItem("email", this.email);
                         this.usuarios = this.usuarios.concat(datos);
                         const usuario = this.usuarios.filter(usuario => usuario.email === localStorage.getItem("email"));
                         localStorage.setItem("id", usuario[0].id);

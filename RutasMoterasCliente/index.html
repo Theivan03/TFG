@@ -9,9 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&family=Sedgwick+Ave+Display&display=swap');
         body{
             background-color: #EBF5FB;
+        }
+        input, textarea, legend, label, select, option, button, a, p{
+            font-family: 'Alegreya Sans', sans-serif;
+            font-size: large;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
         }
         input {
             margin: 10px;
@@ -46,23 +56,21 @@
             import SingIn from "./modules/SingIn.js";
             import Detalle from "./modules/Detalle.js";
             import Actualizar from "./modules/Actualizar.js";
-            
 
-        var myApp = Vue.createApp(Main);
-        myApp.component("Autor",Autor);
-        myApp.component("Header",Header);
-        myApp.component("Footer",Footer);
-        myApp.component("Rutas",Rutas);
-        myApp.component("Login",Login);
-        myApp.component("Header2",Header2);
-        myApp.component("CrearRutas",CrearRutas);
-        myApp.component("SingIn",SingIn);
-        myApp.component("User",User);
-        myApp.component("Actualizar",Actualizar);
-        myApp.component("Detalle",Detalle);
+            var myApp = Vue.createApp(Main);
+            myApp.component("Autor",Autor);
+            myApp.component("Header",Header);
+            myApp.component("Footer",Footer);
+            myApp.component("Rutas",Rutas);
+            myApp.component("Login",Login);
+            myApp.component("Header2",Header2);
+            myApp.component("CrearRutas",CrearRutas);
+            myApp.component("SingIn",SingIn);
+            myApp.component("User",User);
+            myApp.component("Actualizar",Actualizar);
+            myApp.component("Detalle",Detalle);
 
-        myApp.mount("#app");
-        </script>
-
+            myApp.mount("#app");
+        </script>    
     </body>
 </html>

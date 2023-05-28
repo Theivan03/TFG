@@ -1,13 +1,14 @@
 const Detalle={
     template: `
         <div :style="div"></div>
-        <div v-for="(ruta, index) in rutasFiltradas" :key="index" :style="detallecontainer">
-            <h4 :style="h4">{{ruta.titulo}}</h4>
-            <p :style="pdescripcion">{{ruta.descripcion}}</p>
-            <div class="d-flex justify-content-between">
-            <p :style="p">Usuario: {{ruta.nombreusuario}}</p>
-            <p :style="p">Comunidad: {{ruta.comunidad}}</p>
-            <p :style="p">Tipo de moto: {{ruta.tipomoto}}</p>
+          <div v-for="(ruta, index) in rutasFiltradas" :key="index" :style="detallecontainer">
+              <h4 :style="h4">{{ruta.titulo}}</h4>
+              <p :style="pdescripcion">{{ruta.descripcion}}</p>
+              <div class="d-flex justify-content-between">
+              <p :style="p">Usuario: {{ruta.nombreusuario}}</p>
+              <p :style="p">Comunidad: {{ruta.comunidad}}</p>
+              <p :style="p">Tipo de moto: {{ruta.tipomoto}}</p>
+          </div>
         </div>
     `,
 

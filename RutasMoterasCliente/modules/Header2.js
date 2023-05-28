@@ -42,7 +42,7 @@ const Rutas={
             },
             label: {
                 textAlign: "right",
-                margin: "0 1rem 0 0"
+                margin: "0 1rem 0 0",
             },
             select: {
                 textAlign: "center",
@@ -54,7 +54,7 @@ const Rutas={
                 background: "white",
                 cursor: "pointer",
                 outline: "none",
-                width: "12rem",
+                width: "17rem",
             },
             button: {
                 backgroundColor: "transparent",
@@ -65,10 +65,10 @@ const Rutas={
                 textDecoration: "underline",
             },
             div1: {
-                "padding-right": "450px"
+                "padding-right": "400px",
             },
             div2: {
-                "padding-right": "150px"
+                "padding-right": "130px",
             },
         }
     },
