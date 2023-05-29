@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&family=Sedgwick+Ave+Display&display=swap');
         body{
             background-color: #EBF5FB;
+        }
+        input, textarea, legend, label, select, option, button, a, p{
+            font-family: 'Alegreya Sans', sans-serif;
+            font-size: large;
         }
         .form-container {
             display: flex;
@@ -25,67 +30,47 @@
             border-radius: 5px;
             width: 250px;
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-            margin: 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #3e8e41;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-        }
     </style>
 </head>
-<body>
-    <div id="app">
- 
-    </div>
+    <body>
+        <div id="app">
     
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script type="module">
-    
-        import Main from "./modules/Main.js";
-        import Autor from "./modules/Autor.js";
-        import Header from "./modules/Header.js";
-        import Footer from "./modules/Footer.js";
-        import Rutas from "./modules/Rutas.js";
-        import Login from "./modules/Login.js";
-        import Header2 from "./modules/Header2.js";
-        import CrearRutas from "./modules/CrearRutas.js";
-        import User from "./modules/User.js";
-        import SingIn from "./modules/SingIn.js";
-        import Detalle from "./modules/Detalle.js";
+        </div>
         
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+        <script type="module">
+            import Main from "./modules/Main.js";
+            import Autor from "./modules/Autor.js";
+            import Header from "./modules/Header.js";
+            import Footer from "./modules/Footer.js";
+            import Rutas from "./modules/Rutas.js";
+            import Login from "./modules/Login.js";
+            import Header2 from "./modules/Header2.js";
+            import CrearRutas from "./modules/CrearRutas.js";
+            import User from "./modules/User.js";
+            import SingIn from "./modules/SingIn.js";
+            import Detalle from "./modules/Detalle.js";
+            import Actualizar from "./modules/Actualizar.js";
 
-    var myApp = Vue.createApp(Main);
-    myApp.component("Autor",Autor);
-    myApp.component("Header",Header);
-    myApp.component("Footer",Footer);
-    myApp.component("Rutas",Rutas);
-    myApp.component("Login",Login);
-    myApp.component("Header2",Header2);
-    myApp.component("CrearRutas",CrearRutas);
-    myApp.component("SingIn",SingIn);
-    myApp.component("User",User);
-    myApp.component("Detalle",Detalle);
+            var myApp = Vue.createApp(Main);
+            myApp.component("Autor",Autor);
+            myApp.component("Header",Header);
+            myApp.component("Footer",Footer);
+            myApp.component("Rutas",Rutas);
+            myApp.component("Login",Login);
+            myApp.component("Header2",Header2);
+            myApp.component("CrearRutas",CrearRutas);
+            myApp.component("SingIn",SingIn);
+            myApp.component("User",User);
+            myApp.component("Actualizar",Actualizar);
+            myApp.component("Detalle",Detalle);
 
-    myApp.mount("#app");
-    </script>
-
-   
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
+            myApp.mount("#app");
+        </script>    
+    </body>
 </html>

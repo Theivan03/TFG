@@ -2,7 +2,7 @@ from django.db import migrations
 from usuarios.models import MyUser
 
 def usuarios_migrations(apps, schema_editor):
-    MyUser.objects.create_superuser(email="ivan.cabrera@gmail.com", password='romera44')
+    MyUser.objects.create_superuser(email="ivanca2003@gmail.com", password='romera44')
 
 class Migration(migrations.Migration):
     

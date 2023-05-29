@@ -2,8 +2,8 @@ const Rutas={
     template: `
         <!-- Se hece un bucle para sacar todas las rutas que se le pasa al componente. -->
         <div class="row" :style="div">
-        <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
-            <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta.id)" @click="$emit('MostrarDetalle')">
+            <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
+            <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta.id), $emit('MostrarDetalle')">
                 <div :style="div2" class="p-3 mb-4">
                     <h4>{{ruta.titulo}}</h4>
                     <p>{{limiteCaracteres(ruta.descripcion)}}</p>
@@ -28,26 +28,29 @@ const Rutas={
                 "border": "1px solid #dee2e6",
                 "border-radius": "1rem",
             },
+
             div: {
                 "margin-bottom": "50px",
             },
+
             p: {
-                marginLeft: "138px",
-                marginTop: "0px",
-                marginBottom: "30px",
-                fontSize: "1.5rem",
-                fontWeight: "",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                "marginLeft": "200px",
+                "marginTop": "10px",
+                "marginBottom": "30px",
+                "fontSize": "1.5rem",
+                "fontWeight": "",
+                "textShadow": "2px 2px 4px rgba(0, 0, 0, 0.3)",
             },
         }
     },
 
     methods:{
+        // Sirve sacar el detalle de las rutas.
         Detalle(ruta){
             this.$emit("DetalleRuta", ruta)
-            console.log(ruta);
         },
 
+        // Sirve para saber la cantidad de carácteres que se tienen que sacar en la descripción de cada ruta en la página principal.
         limiteCaracteres(value) {
             if (value && value.length > 70) {
               return value.slice(0, 70) + " ...";

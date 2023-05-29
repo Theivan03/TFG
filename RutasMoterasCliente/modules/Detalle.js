@@ -1,14 +1,14 @@
 const Detalle={
     template: `
-        <div :style="div"></div>
+      <div :style="div"></div>
         <div v-for="(ruta, index) in rutasFiltradas" :key="index" :style="detallecontainer">
             <h4 :style="h4">{{ruta.titulo}}</h4>
             <p :style="pdescripcion">{{ruta.descripcion}}</p>
-            <div class="d-flex justify-content-between">
             <p :style="p">Usuario: {{ruta.nombreusuario}}</p>
             <p :style="p">Comunidad: {{ruta.comunidad}}</p>
             <p :style="p">Tipo de moto: {{ruta.tipomoto}}</p>
         </div>
+      </div>
     `,
 
 
@@ -55,10 +55,10 @@ const Detalle={
     },
 
     computed: {
-        // Sirve para filtrar las rutas por el usuario
+        // Sirve para filtrar las rutas por el usuario.
         rutasFiltradas() {
             return this.rutas.filter(ruta => ruta.id === this.ruta);
-        }
+        },
     }
 }
 

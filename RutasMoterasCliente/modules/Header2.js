@@ -23,16 +23,18 @@ const Rutas={
     data(){
         return{
             rutasMostradas: this.rutas,
+
             header: {
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
+                "display": "flex",
+                "justifyContent": "space-around",
+                "alignItems": "center",
                 "padding-top": "20px",
             },
+
             p: {
-                textAlign: "right",
-                cursor: "pointer",
-                margin: 0,
+                "textAlign": "right",
+                "cursor": "pointer",
+                "margin": "0",
                 "background-color": "#007bff",
                 "color": "white",
                 "border": "none",
@@ -40,40 +42,46 @@ const Rutas={
                 "border-radius": "5px",
                 "cursor": "pointer",
             },
+
             label: {
-                textAlign: "right",
-                margin: "0 1rem 0 0"
+                "textAlign": "right",
+                "margin": "0 1rem 0 0",
             },
+
             select: {
-                textAlign: "center",
-                lineHeight: "1.5em",
-                borderRadius: "0.5rem",
-                padding: "0.5rem",
-                border: "1px solid #ccc",
-                appearance: "none",
-                background: "white",
-                cursor: "pointer",
-                outline: "none",
-                width: "12rem",
+                "textAlign": "center",
+                "lineHeight": "1.5em",
+                "borderRadius": "0.5rem",
+                "padding": "0.5rem",
+                "border": "1px solid #ccc",
+                "appearance": "none",
+                "background": "white",
+                "cursor": "pointer",
+                "outline": "none",
+                "width": "17rem",
             },
+
             button: {
-                backgroundColor: "transparent",
-                border: "none",
-                color: "blue",
-                cursor: "pointer",
-                outline: "none",
-                textDecoration: "underline",
+                "backgroundColor": "transparent",
+                "border": "none",
+                "color": "blue",
+                "cursor": "pointer",
+                "outline": "none",
+                "textDecoration": "underline",
             },
+            
             div1: {
-                "padding-right": "450px"
+                "padding-right": "400px",
             },
+
             div2: {
-                "padding-right": "150px"
+                "padding-right": "130px",
             },
         }
     },
 
     methods: {
+        //Sirve para hecer el filtrado de las rutas en la página principal.
         filtrar(tipoFiltro) {
             if (tipoFiltro === 'tipo') {
                 const tipoMoto = prompt('Introduce el tipo de moto a filtrar:');
