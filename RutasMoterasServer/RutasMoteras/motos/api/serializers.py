@@ -16,12 +16,3 @@ class MotosListSerializer(serializers.ModelSerializer):
 
     def get_tipo(self, instance):
         return str(instance.tipo)
-
-class MotosDetailSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Motos
-        fields = (
-            'tipo',
-            'habitad'
-        )

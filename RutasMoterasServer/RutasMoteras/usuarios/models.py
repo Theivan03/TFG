@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.utils.translation import gettext_lazy as _
 
 # Modelos de los Usuarios
+
+# Para usuario administrador.
 class MyUserManager(BaseUserManager):
     
     def create_user(self, email, first_name=None, last_name=None, password=None, type=None):
@@ -37,6 +39,7 @@ class MyUserManager(BaseUserManager):
         return user
     
 
+# Para usuario no administrador.
 class MyUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length = 256, unique = True, null = True)
     email = models.EmailField(max_length = 256, unique = True)

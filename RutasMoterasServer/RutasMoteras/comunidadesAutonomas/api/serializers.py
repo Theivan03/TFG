@@ -10,12 +10,3 @@ class ComunidadesListSerializer(serializers.ModelSerializer):
             'id',
             'nombre',
         )
-
-
-class ComunidadesDetailSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Comunidades
-        fields = (
-            'nombre',
-        )

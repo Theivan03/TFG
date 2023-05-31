@@ -3,9 +3,7 @@ from rest_framework import (mixins,
                             filters, 
                             )
 from comunidadesAutonomas.models import Comunidades
-from comunidadesAutonomas.api.serializers import (  ComunidadesListSerializer, 
-                                                    ComunidadesDetailSerializer,
-                                                    )
+from comunidadesAutonomas.api.serializers import ( ComunidadesListSerializer )
 from .mixins import destroy
 
 # Vistas para la API

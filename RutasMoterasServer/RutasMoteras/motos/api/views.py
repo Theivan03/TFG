@@ -3,9 +3,7 @@ from rest_framework import (mixins,
                             filters, 
                             )
 from motos.models import Motos
-from motos.api.serializers import ( MotosListSerializer, 
-                                    MotosDetailSerializer,
-                                            )
+from motos.api.serializers import ( MotosListSerializer )
 from .mixins import destroy
 
 # Vistas para la API

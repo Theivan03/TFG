@@ -23,6 +23,7 @@ from rutas.api import views as rutas_api_views
 from usuarios.api import views as usuarios_api_views
 from comunidadesAutonomas.api import views as comunidades_api_views
 
+# Rutas para la API.
 router = routers.DefaultRouter()
 router.register(r'motos_list', motos_api_views.MotosListViewSet, basename='motos_list')
 
