@@ -29,7 +29,7 @@ const Detalle={
               },
               
               h4: {
-                "font-size": "20px",
+                "font-size": "30px",
                 "margin-bottom": "10px",
               },
               

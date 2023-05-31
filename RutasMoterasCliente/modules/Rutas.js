@@ -5,7 +5,7 @@ const Rutas={
             <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
             <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta.id), $emit('MostrarDetalle')">
                 <div :style="div2" class="p-3 mb-4">
-                    <h4>{{ruta.titulo}}</h4>
+                    <h4 :style="h4">{{ruta.titulo}}</h4>
                     <p>{{limiteCaracteres(ruta.descripcion)}}</p>
                     <div class="d-flex justify-content-between">
                         <p>Usuario: {{ruta.nombreusuario}}</p>
@@ -31,6 +31,10 @@ const Rutas={
 
             div: {
                 "margin-bottom": "50px",
+            },
+
+            h4: {
+                "font-size": "30px",
             },
 
             p: {

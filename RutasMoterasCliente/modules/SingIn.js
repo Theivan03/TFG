@@ -7,7 +7,7 @@ const SingIn={
             <div class="error" v-if="erroremail">{{ erroremail }}</div>
             <input type="password" v-model="password" placeholder="Contraseña">
             <button type="submit" :style="button">Iniciar sesión</button>
-            <div class="error" v-if="error">{{ error }}</div>
+            <div :style="error2"  class="error" v-if="error">{{ error }}</div>
             <p>Ya tienes una cuenta registrada? <a @click="$emit('login')">Iniciar sesión.</a></p>
         </form>
     `,
@@ -20,6 +20,11 @@ const SingIn={
             error: '',
             erroremail: '',
 
+            error2: {
+                "color": "red",
+                "padding-top": "10px",
+            },
+
             div:{
                 "padding-top": "150px",
             },
@@ -31,6 +36,12 @@ const SingIn={
                 "padding": "10px 20px",
                 "border-radius": "5px",
                 "cursor": "pointer",
+                "padding-top": "15px",
+                "padding-bottom": "15px",
+            },
+
+            p:{
+                "padding-top": "15px",
             },
         }
     },
@@ -38,16 +49,16 @@ const SingIn={
     methods: {
         // Sirve para hacer la creación de un nuevo usuario.
         singin() {
-            axios.post('http://127.0.0.1/api/usuarios_detail/', { username: this.username,
-                                                                email: this.email,
-                                                                password: this.password,
+            axios.post('http://127.0.0.1/api/usuarios_detail/', {   username: this.username,
+                                                                    email: this.email,
+                                                                    password: this.password,
             })
             .then(response => {
                 this.error = '';
                 this.$emit('MostrarLogin');
             })
             .catch(error => {
-                this.error = error;
+                this.error = "introduce unas credenciales validas.";
             });
         },
         

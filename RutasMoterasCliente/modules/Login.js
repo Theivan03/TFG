@@ -5,7 +5,7 @@ const Login={
             <input type="email" v-model="email" placeholder="Correo electrónico">
             <input type="password" v-model="password" placeholder="Contraseña">
             <button type="submit" :style="button">Iniciar sesión</button>
-            <div class="error" v-if="error">{{ error }}</div>
+            <div :style="error2" class="error" v-if="error">{{ error }}</div>
             <p>Completa el login para acceder a todas las posibilidades de la web. <a @click="$emit('Singin')">Aún no tienes usuario?</a></p>
         </form>
         `,
@@ -16,6 +16,11 @@ const Login={
             email: '',
             password: '',
             error: '',
+
+            error2: {
+                "color": "red",
+                "padding-bottom": "10px",
+            },
 
             div:{
                 "padding-top": "150px",
