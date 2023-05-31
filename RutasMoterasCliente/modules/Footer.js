@@ -2,9 +2,9 @@ const Footer={
     template:`
         <footer :style="footer">
             <div :style="left">
-                <a href="https://www.instagram.com/ivancabrerareig/" :style="a" target="_blank">Instagram</a>
-                <a href="https://www.facebook.com/ivan.cabrerareig.1" :style="a" target="_blank">Facebook</a>
-                <a href="https://twitter.com/home" :style="a" target="_blank">Twiter</a>
+                <a href="https://www.instagram.com/rutasmoterasoficial/" :style="a" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/RutasMoterasOficial/" :style="a" target="_blank">Facebook</a>
+                <a href="https://twitter.com/RMoteras" :style="a" target="_blank">Twiter</a>
             </div>
             <div :style="right">
                 <a href="#" :style="a" @click="$emit('autor')">Autor</a>

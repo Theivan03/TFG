@@ -1,28 +1,34 @@
 const Header={
     template:`
-        <header :style="header" v-if="flecha === false && email">
+        <header :style="header" v-if="flecha === false && email && modificar === false">
             <img src="imgs/flecha.svg" :style="img" @click="$emit('inicio')">
             <h1 :style="h1" @click="$emit('inicio')">RutasMoteras</h1>
             <a :style="user" @click="$emit('usuario', 'rutas')">Usuario</a>
             <a :style="a" @click="$emit('logout')">Logout</a>
         </header>
-        <header :style="header" v-if="flecha === true && email">
+        <header :style="header" v-if="flecha === true && email && modificar === false">
             <h1 :style="h1derecha" @click="$emit('inicio')">RutasMoteras</h1>
             <a :style="user" @click="$emit('usuario', 'rutas')">Usuario</a>
             <a :style="a" @click="$emit('logout')">Logout</a>
         </header>
-        <header :style="header" v-if="flecha === false && email===false">
+        <header :style="header" v-if="flecha === false && email === false && modificar === false">
             <img v-if="flecha !== true" src="imgs/flecha.svg" :style="imglogin" @click="$emit('inicio')">
             <h1 :style="h1login" @click="$emit('inicio')">RutasMoteras</h1>
             <a :style="a" @click="$emit('login')">Login</a>
         </header>
-        <header :style="header" v-if="flecha === true && email===false">
+        <header :style="header" v-if="flecha === true && email === false && modificar === false">
             <h1 :style="h1derechalogin" @click="$emit('inicio')">RutasMoteras</h1>
             <a :style="a" @click="$emit('login')">Login</a>
         </header>
+        <header :style="header" v-if="modificar === true">
+            <img src="imgs/flecha.svg" :style="imguser" @click="$emit('usuario', 'rutas')">
+            <h1 :style="h1login" @click="$emit('inicio')">RutasMoteras</h1>
+            <a :style="user" @click="$emit('usuario', 'rutas')">Usuario</a>
+            <a :style="a" @click="$emit('logout')">Logout</a>
+        </header>
     `,
 
-    props:["flecha", "email"],
+    props:["flecha", "email", "modificar"],
 
     data(){
         return{
@@ -44,6 +50,12 @@ const Header={
                 "margin-right": "-10px",
             },
 
+            imguser:{
+                "max-width": "50px",
+                "margin-left": "150px",
+                // "margin-right": "-152px",
+            },
+
             h1:{
                 "font-family": "Sedgwick Ave Display",
                 "flex": "1",
@@ -55,6 +67,8 @@ const Header={
                 "font-family": "Sedgwick Ave Display",
                 "flex": "1",
                 "text-align": "center",
+                "margin-right": "162px",
+                "margin-left": "10px",
             },
 
             h1derecha: {
