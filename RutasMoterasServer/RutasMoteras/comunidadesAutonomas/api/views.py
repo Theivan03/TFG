@@ -23,20 +23,3 @@ class ComunidadesListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     def get_queryset(self):
         return Comunidades.objects.all()
-    
-
-
-class ComunidadesDetailViewSet(     destroy, 
-                                    mixins.CreateModelMixin, 
-                                    mixins.RetrieveModelMixin, 
-                                    mixins.UpdateModelMixin, 
-                                    mixins.DestroyModelMixin,
-                                    viewsets.GenericViewSet):
-    """
-    Descripción: Saca todos los campos de las Comunidades Autónomas.
-    """
-    serializer_class = ComunidadesDetailSerializer
-    model = Comunidades
-
-    def get_queryset(self):
-        return Comunidades.objects.all()

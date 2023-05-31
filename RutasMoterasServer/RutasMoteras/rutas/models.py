@@ -3,7 +3,6 @@ from django.utils import timezone
 from motos.models import Motos
 from comunidadesAutonomas.models import Comunidades
 from usuarios.models import MyUser
-from likes.models import likes
 
 # Modelos de las Rutas
 class Ruta(models.Model):

@@ -26,11 +26,11 @@ class RutaListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     
 
 
-class RutaDetailViewSet(    mixins.CreateModelMixin, 
-                            mixins.RetrieveModelMixin, 
-                            mixins.UpdateModelMixin, 
-                            mixins.DestroyModelMixin,
-                            viewsets.GenericViewSet):
+class RutaDetailViewSet(mixins.CreateModelMixin, 
+                        mixins.RetrieveModelMixin, 
+                        mixins.UpdateModelMixin, 
+                        mixins.DestroyModelMixin,
+                        viewsets.GenericViewSet):
     """
     Descripción: Saca todos los campos de las rutas.
     """

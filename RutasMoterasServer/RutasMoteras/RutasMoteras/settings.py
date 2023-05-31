@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     #Apps
     'rutas',
     'comunidadesAutonomas',
-    'likes',
     'motos',
     'usuarios',
 ]

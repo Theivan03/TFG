@@ -20,25 +20,19 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from motos.api import views as motos_api_views
 from rutas.api import views as rutas_api_views
-from likes.api import views as likes_api_views
 from usuarios.api import views as usuarios_api_views
 from comunidadesAutonomas.api import views as comunidades_api_views
 
 router = routers.DefaultRouter()
 router.register(r'motos_list', motos_api_views.MotosListViewSet, basename='motos_list')
-router.register(r'motos_detail', motos_api_views.MotosDetailViewSet, basename='motos_detail')
 
 router.register(r'rutas_list', rutas_api_views.RutaListViewSet, basename='rutas_list')
 router.register(r'rutas_detail', rutas_api_views.RutaDetailViewSet, basename='rutas_detail')
-
-router.register(r'likes_list', likes_api_views.LikesListViewSet, basename='likes_list')
-router.register(r'likes_detail', likes_api_views.LikesDetailViewSet, basename='likes_detail')
 
 router.register(r'usuarios_list', usuarios_api_views.MyUserListViewSet, basename='usuarios_list')
 router.register(r'usuarios_detail', usuarios_api_views.MyUserDetailViewSet, basename='usuarios_detail')
 
 router.register(r'comunidades_list', comunidades_api_views.ComunidadesListViewSet, basename='comunidades_list')
-router.register(r'comunidades_detail', comunidades_api_views.ComunidadesDetailViewSet, basename='comunidades_detail')
 
 urlpatterns = [
     path('api/', include(router.urls)),

@@ -23,20 +23,3 @@ class MotosListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     def get_queryset(self):
         return Motos.objects.all()
-    
-
-
-class MotosDetailViewSet(   destroy, 
-                            mixins.CreateModelMixin, 
-                            mixins.RetrieveModelMixin, 
-                            mixins.UpdateModelMixin, 
-                            mixins.DestroyModelMixin,
-                            viewsets.GenericViewSet):
-    """
-    Descripción: Saca todos los campos de las motos.
-    """
-    serializer_class = MotosDetailSerializer
-    model = Motos
-
-    def get_queryset(self):
-        return Motos.objects.all()
