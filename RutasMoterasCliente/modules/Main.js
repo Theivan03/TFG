@@ -1,7 +1,7 @@
 const Main = {
     template:`
         <div :style="div">
-            <!-- Aqui se saca todo el codigo html de cada uno de los componentes creados. -->
+            <!-- Aquí se saca todo el código html de cada uno de los componentes creados. -->
             <!-- Cada uno lo saca cuando cumple los requisitos que se le pide y también se le pasa a cada componente las funciones que necesita y los datos que se necesitan.-->
             
             <Header @inicio="MostrarInicio" @logout="HacerLogout" @login="MostrarLogin" @usuario="MostrarUsuario" @rutas="BuscarRutas()" :flecha="mostrarRutas" :email="email"></Header>
@@ -39,7 +39,7 @@ const Main = {
         }
     },
 
-    // Descarga las rutas que haya en el servidor y comprueba si tiene una sesion iniciada.
+    // Descarga las rutas que haya en el servidor y comprueba si tiene una sesión iniciada.
     created(){
         this.BuscarRutas();
         this.BuscarMotos();
@@ -78,7 +78,7 @@ const Main = {
             });
         },
 
-        // Son todos los metodos para saber cuando mostrar cada componente.
+        // Son todos los métodos para saber cuando mostrar cada componente.
         MostrarAutor(){
             this.mostrarAutor = true;
             this.mostrarLogin = false;

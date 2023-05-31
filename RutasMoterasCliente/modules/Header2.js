@@ -81,7 +81,7 @@ const Rutas={
     },
 
     methods: {
-        //Sirve para hecer el filtrado de las rutas en la página principal.
+        // Sirve para hacer el filtrado de las rutas en la página principal.
         filtrar(tipoFiltro) {
             if (tipoFiltro === 'tipo') {
                 const tipoMoto = prompt('Introduce el tipo de moto a filtrar:');

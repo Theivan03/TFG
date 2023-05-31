@@ -40,7 +40,7 @@ const Login={
     },
 
     methods:{
-        // Sirve para hecer el login y crear el almacenamiento local.
+        // Sirve para hacer el login y crear el almacenamiento local.
         login() {
             axios.post('http://127.0.0.1/api/auth/jwt/create/', {   'email': this.email,
                                                                     'password': this.password,

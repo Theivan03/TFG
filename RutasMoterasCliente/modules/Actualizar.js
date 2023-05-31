@@ -110,7 +110,7 @@ const Actualizar={
     },
   
     methods: {
-        // Sirve para saber si hay algún campo vacio.
+        // Sirve para saber si hay algún campo vacío.
         campoVacio(campo) {
             return !this[campo];
         },

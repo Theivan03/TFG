@@ -63,12 +63,12 @@ const User={
     },
 
     methods:{
-        // Sirve para actualizar cierta ruta que tiene creada el usaurio.
+        // Sirve para actualizar cierta ruta que tiene creada el usuario.
         Actualizar(ruta){
             this.$emit("Actualizar", ruta);
         },
 
-        // Sirve para saber la cantidad de carácteres que se tienen que sacar en la descripción de cada ruta en la página principal.
+        // Sirve para saber la cantidad de caracteres que se tienen que sacar en la descripción de cada ruta en la página principal.
         limiteCaracteres(value) {
             if (value && value.length > 70) {
               return value.slice(0, 70) + " ...";

@@ -55,7 +55,7 @@ const Detalle={
     },
 
     computed: {
-        // Sirve para filtrar las rutas por el usuario.
+        // Sirve para hacer el filtrado y mostrar la ruta correcta.
         rutasFiltradas() {
             return this.rutas.filter(ruta => ruta.id === this.ruta);
         },

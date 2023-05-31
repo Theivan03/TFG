@@ -1,6 +1,6 @@
 const Rutas={
     template: `
-        <!-- Se hece un bucle para sacar todas las rutas que se le pasa al componente. -->
+        <!-- Se hace un bucle para sacar todas las rutas que se le pasa al componente. -->
         <div class="row" :style="div">
             <p :style="p"><b>Clica una de las rutas para verla en detalle.</b></p>
             <div class="col-md-6 text-center" v-for="(ruta, index) in rutas" :key="index" @click="Detalle(ruta.id), $emit('MostrarDetalle')">
@@ -49,12 +49,12 @@ const Rutas={
     },
 
     methods:{
-        // Sirve sacar el detalle de las rutas.
+        // Sirve para sacar el detalle de las rutas.
         Detalle(ruta){
             this.$emit("DetalleRuta", ruta)
         },
 
-        // Sirve para saber la cantidad de carácteres que se tienen que sacar en la descripción de cada ruta en la página principal.
+        // Sirve para saber la cantidad de caracteres que se tienen que sacar en la descripción de cada ruta en la página principal.
         limiteCaracteres(value) {
             if (value && value.length > 70) {
               return value.slice(0, 70) + " ...";
