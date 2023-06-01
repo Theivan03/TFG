@@ -98,15 +98,15 @@ WSGI_APPLICATION = 'RutasMoteras.wsgi.application'
 DATABASES = {
     'default': {
         #Cambiar base de datos a PostgresSQL
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "db",
-        "PORT": 5432,
+        # "ENGINE": "django.db.backends.postgresql",
+        # "NAME": "postgres",
+        # "USER": "postgres",
+        # "PASSWORD": "postgres",
+        # "HOST": "db",
+        # "PORT": 5432,
         # Opciónes para poner sqlite3 otra vez.
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
