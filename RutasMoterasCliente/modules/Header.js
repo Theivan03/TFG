@@ -46,7 +46,7 @@ const Header={
 
             imglogin:{
                 "max-width": "50px",
-                "margin-left": "150px",
+                "margin-left": "280px",
                 "margin-right": "-10px",
             },
 
